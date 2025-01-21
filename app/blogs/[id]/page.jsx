@@ -1,26 +1,35 @@
 "use client";
-import { assets, blog_data } from "@/Assets/assets";
+import { assets } from "@/Assets/assets";
 import Footer from "@/Components/Footer";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 const page = ({ params }) => {
   const [data, setData] = useState(null);
+  
+  // Use React.use() to unwrap the Promise
+  const unwrappedParams = React.use(params);
 
-  const fetchBlogData = () => {
-    for (let i = 0; i < blog_data.length; i++) {
-      if (Number(params.id) === blog_data[i].id) {
-        setData(blog_data[i]);
-        console.log(blog_data[i]);
-        break;
+  const fetchBlogData = async () => {
+    if (unwrappedParams && unwrappedParams.id) {
+      try {
+        const response = await axios.get('/api/blog', {
+          params: { id: unwrappedParams.id }
+        });
+        setData(response.data); // Set the fetched data to state
+      } catch (error) {
+        console.error("Error fetching blog data:", error);
       }
     }
   };
 
   useEffect(() => {
-    fetchBlogData();
-  }, []);
+    if (unwrappedParams && unwrappedParams.id) {
+      fetchBlogData();
+    }
+  }, [unwrappedParams]); // Re-fetch data when `params` change
 
   return data ? (
     <>
@@ -30,12 +39,12 @@ const page = ({ params }) => {
             <Image
               src={assets.logo}
               width={180}
-              alt=""
+              alt="Logo"
               className="w-[130px] sm:w-auto"
             />
           </Link>
           <button className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-black shadow-[-7px_7px_0px_#000000]">
-            Get Started <Image src={assets.arrow} alt="" />
+            Get Started <Image src={assets.arrow} alt="Arrow" />
           </button>
         </div>
         <div className="text-center my-24">
@@ -47,7 +56,7 @@ const page = ({ params }) => {
             src={data.author_img}
             width={60}
             height={60}
-            alt=""
+            alt="Author Image"
           />
           <p className="mt-1 pb-2 text-lg max-w-[740px] mx-auto">
             {data.author}
@@ -60,73 +69,31 @@ const page = ({ params }) => {
           src={data.image}
           width={1280}
           height={720}
-          alt=""
+          alt="Blog Image"
         />
         <h1 className="my-8 text-[26px] font-semibold">Introduction:</h1>
         <p>{data.description}</p>
-        <h3 className="my-5 text-[18px] font-semibold">
-          Step 1: Self-Reflection and Goal Setting
-        </h3>
+        <h3 className="my-5 text-[18px] font-semibold">Step 1: Self-Reflection and Goal Setting</h3>
         <p className="my-3">
-          Before you can manage your lifestyle, you must have a clear
-          understanding of what you want to achieve. Start by reflecting on your
-          values, aspirations, and long-term goals.
-        </p>
-        <p className="my-3">
-          Before you can manage your lifestyle, you must have a clear
-          understanding of what you want to achieve. Start by reflecting on your
-          values, aspirations, and long-term goals.
-        </p>
-        <h3 className="my-5 text-[18px] font-semibold">
-          Step 2: Self-Reflection and Goal Setting
-        </h3>
-        <p className="my-3">
-          Before you can manage your lifestyle, you must have a clear
-          understanding of what you want to achieve. Start by reflecting on your
-          values, aspirations, and long-term goals.
-        </p>
-        <p className="my-3">
-          Before you can manage your lifestyle, you must have a clear
-          understanding of what you want to achieve. Start by reflecting on your
-          values, aspirations, and long-term goals.
-        </p>
-        <h3 className="my-5 text-[18px] font-semibold">
-          Step 3: Self-Reflection and Goal Setting
-        </h3>
-        <p className="my-3">
-          Before you can manage your lifestyle, you must have a clear
-          understanding of what you want to achieve. Start by reflecting on your
-          values, aspirations, and long-term goals.
-        </p>
-        <p className="my-3">
-          Before you can manage your lifestyle, you must have a clear
-          understanding of what you want to achieve. Start by reflecting on your
-          values, aspirations, and long-term goals.
+          Before you can manage your lifestyle, you must have a clear understanding of what you want to achieve. Start by reflecting on your values, aspirations, and long-term goals.
         </p>
         <h3 className="my-5 text-[18px] font-semibold">Conclusion</h3>
         <p className="my-3">
-          Managing your lifestyle is a journey that requires commitment and
-          self-awareness. By following this step-by-step guide, you can take
-          control of your life and make meaningful changes that lead to a more
-          balanced and fulfilling lifestyle. Remember that it's okay to seek
-          support and guidance from professionals or mentors along the way. Your
-          well-being and happiness are worth the effort.
+          Managing your lifestyle is a journey that requires commitment and self-awareness. By following this step-by-step guide, you can take control of your life and make meaningful changes that lead to a more balanced and fulfilling lifestyle.
         </p>
         <div className="my-24">
-          <p className="text-black font-semibold my-4">
-            Share this article on Social Media
-          </p>
+          <p className="text-black font-semibold my-4">Share this article on Social Media</p>
           <div className="flex">
-            <Image src={assets.facebook_icon} width={50} alt="" />
-            <Image src={assets.twitter_icon} width={50} alt="" />
-            <Image src={assets.googleplus_icon} width={50} alt="" />
+            <Image src={assets.facebook_icon} width={50} alt="Facebook" />
+            <Image src={assets.twitter_icon} width={50} alt="Twitter" />
+            <Image src={assets.googleplus_icon} width={50} alt="Google+" />
           </div>
         </div>
       </div>
       <Footer />
     </>
   ) : (
-    <></>
+    <div>Loading...</div> // Loading state
   );
 };
 
