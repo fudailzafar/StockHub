@@ -8,28 +8,17 @@ import React, { useEffect, useState } from "react";
 
 const page = ({ params }) => {
   const [data, setData] = useState(null);
-  
-  // Use React.use() to unwrap the Promise
-  const unwrappedParams = React.use(params);
 
   const fetchBlogData = async () => {
-    if (unwrappedParams && unwrappedParams.id) {
-      try {
-        const response = await axios.get('/api/blog', {
-          params: { id: unwrappedParams.id }
-        });
-        setData(response.data); // Set the fetched data to state
-      } catch (error) {
-        console.error("Error fetching blog data:", error);
-      }
-    }
+    const response = await axios.get("/api/blog", {
+      params: { id: params.id },
+    });
+    setData(response.data);
   };
 
   useEffect(() => {
-    if (unwrappedParams && unwrappedParams.id) {
-      fetchBlogData();
-    }
-  }, [unwrappedParams]); // Re-fetch data when `params` change
+    fetchBlogData();
+  }, []);
 
   return data ? (
     <>
@@ -53,7 +42,7 @@ const page = ({ params }) => {
           </h1>
           <Image
             className="mx-auto mt-6 border border-white rounded-full"
-            src={data.author_img}
+            src={data.authorImg}
             width={60}
             height={60}
             alt="Author Image"
@@ -73,16 +62,25 @@ const page = ({ params }) => {
         />
         <h1 className="my-8 text-[26px] font-semibold">Introduction:</h1>
         <p>{data.description}</p>
-        <h3 className="my-5 text-[18px] font-semibold">Step 1: Self-Reflection and Goal Setting</h3>
+        <h3 className="my-5 text-[18px] font-semibold">
+          Step 1: Self-Reflection and Goal Setting
+        </h3>
         <p className="my-3">
-          Before you can manage your lifestyle, you must have a clear understanding of what you want to achieve. Start by reflecting on your values, aspirations, and long-term goals.
+          Before you can manage your lifestyle, you must have a clear
+          understanding of what you want to achieve. Start by reflecting on your
+          values, aspirations, and long-term goals.
         </p>
         <h3 className="my-5 text-[18px] font-semibold">Conclusion</h3>
         <p className="my-3">
-          Managing your lifestyle is a journey that requires commitment and self-awareness. By following this step-by-step guide, you can take control of your life and make meaningful changes that lead to a more balanced and fulfilling lifestyle.
+          Managing your lifestyle is a journey that requires commitment and
+          self-awareness. By following this step-by-step guide, you can take
+          control of your life and make meaningful changes that lead to a more
+          balanced and fulfilling lifestyle.
         </p>
         <div className="my-24">
-          <p className="text-black font-semibold my-4">Share this article on Social Media</p>
+          <p className="text-black font-semibold my-4">
+            Share this article on Social Media
+          </p>
           <div className="flex">
             <Image src={assets.facebook_icon} width={50} alt="Facebook" />
             <Image src={assets.twitter_icon} width={50} alt="Twitter" />
