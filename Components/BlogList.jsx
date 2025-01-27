@@ -29,32 +29,32 @@ const BlogList = () => {
           All
         </button>
         <button
-          onClick={() => setMenu("Technology")}
+          onClick={() => setMenu("Introduction")}
           className={
-            menu === "Technology"
+            menu === "Introduction"
               ? "bg-black text-white py-1 px-4 rounded-sm"
               : ""
           }
         >
-          Technology
+          Introduction
         </button>
         <button
-          onClick={() => setMenu("Startup")}
+          onClick={() => setMenu("Technical")}
           className={
-            menu === "Startup" ? "bg-black text-white py-1 px-4 rounded-sm" : ""
+            menu === "Technical" ? "bg-black text-white py-1 px-4 rounded-sm" : ""
           }
         >
-          Startup
+          Technical
         </button>
         <button
-          onClick={() => setMenu("Lifestyle")}
+          onClick={() => setMenu("Fundamental")}
           className={
-            menu === "Lifestyle"
+            menu === "Fundamental"
               ? "bg-black text-white py-1 px-4 rounded-sm"
               : ""
           }
         >
-          Lifestyle
+          Fundamental
         </button>
       </div>
       <div className="flex flex-wrap justify-around gap-1 gap-y-10 mb-16 xl:mx-24">

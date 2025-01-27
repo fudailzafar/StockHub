@@ -1,6 +1,6 @@
 "use client";
 import { assets } from "@/Assets/assets";
-import axios from 'axios';
+import axios from "axios";
 import Image from "next/image";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
@@ -10,7 +10,7 @@ const page = () => {
   const [data, setData] = useState({
     title: "",
     description: "",
-    category: "Startup",
+    category: "Introduction",
     author: "Fudail Mohammed Zafar",
     authorImg: "/author_img.png",
   });
@@ -25,12 +25,12 @@ const page = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('title', data.title);
-    formData.append('description', data.description);
-    formData.append('category', data.category);
-    formData.append('author', data.author);
-    formData.append('authorImg', data.authorImg);
-    formData.append('image', image);
+    formData.append("title", data.title);
+    formData.append("description", data.description);
+    formData.append("category", data.category);
+    formData.append("author", data.author);
+    formData.append("authorImg", data.authorImg);
+    formData.append("image", image);
     const response = await axios.post("/api/blog", formData);
     if (response.data.success) {
       toast.success(response.data.msg);
@@ -38,12 +38,12 @@ const page = () => {
       setData({
         title: "",
         description: "",
-        category: "Startup",
+        category: "Fundamental",
       });
     } else {
       toast.error("Error");
     }
-  }
+  };
   return (
     <>
       <form onSubmit={onSubmitHandler} className="pt-5 px-5 sm:pt-12 sm:pl-16">
@@ -93,9 +93,9 @@ const page = () => {
           value={data.category}
           className="w-40 mt-4 px-4 py-3 border text-gray-500"
         >
-          <option value="Startup">Startup</option>
-          <option value="Technology">Technology</option>
-          <option value="Lifestyle">Lifestyle</option>
+          <option value="Introduction">Introduction</option>
+          <option value="Technical">Technical</option>
+          <option value="Fundamental">Fundamental</option>
         </select>
         <br />
         <button type="submit" className="mt-8 w-40 h-12 bg-black text-white">

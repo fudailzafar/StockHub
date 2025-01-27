@@ -29,19 +29,21 @@ const Header = () => {
           alt=""
           className="w-[130px] sm:w-auto"
         />
-        
-          <button className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black shadow-[-7px_7px_0px_#000000]">
-          <Link href={"/admin"}>Admin <Image src={assets.arrow} alt="" /></Link>
-          </button>
-        
+
+        <button className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black shadow-[-7px_7px_0px_#000000]">
+          <Link href={"/admin"}>
+            Admin <Image src={assets.arrow} alt="" />
+          </Link>
+        </button>
       </div>
       <div className="text-center my-8">
-        <h1 className="text-3xl sm:text-5xl font-medium">Latest Blogs</h1>
-        <p className="mt-10 max-w-[740px] m-auto text-xs sm:text-base">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quidem
-          delectus reprehenderit illum libero adipisci quasi beatae quisquam vel
-          corporis reiciendis, expedita harum consectetur consequatur alias
-          similique iure tempore? Eaque!
+        <h1 className="text-3xl sm:text-8xl font-medium">StockHub</h1>
+        <p className="mt-10 max-w-[740px] m-auto text-xs sm:text-base sm:text-lg">
+          Your one stop guide to learn about the <b>stock markets</b>! People
+          think that investing in stock markets is risky, deadly, and what not!
+          But StockHub is here to teach you how to{" "}
+          <b>buy the castle you always wanted!</b> Welcome to the {" "}
+          <b>MoneyLand!</b>
         </p>
         <form
           onSubmit={onSubmitHandler}
