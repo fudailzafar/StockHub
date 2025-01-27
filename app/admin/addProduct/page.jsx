@@ -11,7 +11,7 @@ const page = () => {
     title: "",
     description: "",
     category: "Startup",
-    author: "Alex Bennett",
+    author: "Fudail Mohammed Zafar",
     authorImg: "/author_img.png",
   });
 
