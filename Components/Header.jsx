@@ -54,7 +54,7 @@ const Header = () => {
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             type="email"
-            placeholder="Enter your email"
+            placeholder="Weekly Newsletter"
             className="pl-4 outline-none"
           />
           <button
