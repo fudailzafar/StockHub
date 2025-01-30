@@ -31,7 +31,7 @@ const Header = () => {
         />
 
         <button className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black shadow-[-7px_7px_0px_#000000]">
-          <Link href={"/admin"}>
+          <Link href={"/"}>
             Admin <Image src={assets.arrow} alt="" />
           </Link>
         </button>
