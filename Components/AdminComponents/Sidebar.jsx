@@ -2,13 +2,20 @@ import { assets } from "@/Assets/assets";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Cookie } from "next/font/google";
+
+const cookie = Cookie({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const Sidebar = () => {
   return (
     <div className="flex flex-col bg-slate-100">
       <div className="px-2 sm:pl-14 py-3 border border-black">
         <Link href={"/"}>
-          <Image src={assets.logo} width={120} alt="" />
+          <h1 className={`${cookie.className} text-3xl`}>StockHub</h1>
         </Link>
       </div>
       <div className="w-28 sm:w-80 h-[100vh] relative py-12 border border-black">

@@ -4,6 +4,13 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Link from "next/link";
+import { Cookie } from "next/font/google";
+
+const cookie = Cookie({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const Header = () => {
   const [email, setEmail] = useState("");
@@ -23,12 +30,9 @@ const Header = () => {
   return (
     <div className="py-5 px-5 md:px-12 lg:px-28">
       <div className="flex justify-between items-center">
-        <Image
-          src={assets.logo}
-          width={180}
-          alt=""
-          className="w-[130px] sm:w-auto"
-        />
+        <Link href={"/"}>
+          <h1 className={`${cookie.className} text-3xl`}>StockHub</h1>
+        </Link>
 
         <button className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black shadow-[-7px_7px_0px_#000000]">
           <Link href={"/admin"}>
@@ -38,11 +42,11 @@ const Header = () => {
       </div>
       <div className="text-center my-8">
         <h1 className="text-3xl sm:text-8xl font-medium">StockHub</h1>
-        <p className="mt-10 max-w-[740px] m-auto text-xs sm:text-base sm:text-lg">
+        <p className="mt-10 max-w-[740px] m-auto text-xs sm:text-base md:text-lg">
           Your one stop guide to learn about the <b>stock markets</b>! People
           think that investing in stock markets is risky, deadly, and what not!
           But StockHub is here to teach you how to{" "}
-          <b>buy the castle you always wanted!</b> Welcome to the {" "}
+          <b>buy the castle you always wanted!</b> Welcome to the{" "}
           <b>MoneyLand!</b>
         </p>
         <form

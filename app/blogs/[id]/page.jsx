@@ -5,6 +5,13 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { Cookie } from "next/font/google";
+
+const cookie = Cookie({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const page = ({ params }) => {
   const [data, setData] = useState(null);
@@ -24,13 +31,8 @@ const page = ({ params }) => {
     <>
       <div className="bg-gray-200 py-5 px-5 md:px-12 lg:px-28">
         <div className="flex justify-between items-center">
-          <Link href="/">
-            <Image
-              src={assets.logo}
-              width={180}
-              alt="Logo"
-              className="w-[130px] sm:w-auto"
-            />
+          <Link href={"/"}>
+            <h1 className={`${cookie.className} text-3xl`}>StockHub</h1>
           </Link>
           <button className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-black shadow-[-7px_7px_0px_#000000]">
             <Link href={"/admin"}>
