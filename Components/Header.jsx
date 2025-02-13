@@ -31,7 +31,7 @@ const Header = () => {
     <div className="py-5 px-5 md:px-12 lg:px-28">
       <div className="flex justify-between items-center">
         <Link href={"/"}>
-          <h1 className={`${cookie.className} text-3xl`}>StockHub</h1>
+          <h1 className={`${cookie.className} text-3xl`}>Skillify</h1>
         </Link>
 
         <button className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black shadow-[-7px_7px_0px_#000000]">
@@ -41,7 +41,7 @@ const Header = () => {
         </button>
       </div>
       <div className="text-center my-8">
-        <h1 className="text-3xl sm:text-8xl font-medium">StockHub</h1>
+        <h1 className="text-3xl sm:text-8xl font-medium">Skillify</h1>
         <p className="mt-10 max-w-[740px] m-auto text-xs sm:text-base md:text-lg">
           Your one stop guide to learn about the <b>stock markets</b>! People
           think that investing in stock markets is risky, deadly, and what not!
