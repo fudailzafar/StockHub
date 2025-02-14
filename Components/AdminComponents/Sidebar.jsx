@@ -15,7 +15,7 @@ const Sidebar = () => {
     <div className="flex flex-col bg-slate-100">
       <div className="px-2 sm:pl-14 py-3 border border-black">
         <Link href={"/"}>
-          <h1 className={`${cookie.className} text-3xl`}>Skillify</h1>
+          <h1 className={`${cookie.className} text-3xl`}>StockHub</h1>
         </Link>
       </div>
       <div className="w-28 sm:w-80 h-[100vh] relative py-12 border border-black">

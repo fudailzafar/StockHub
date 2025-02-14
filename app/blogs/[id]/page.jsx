@@ -32,7 +32,7 @@ const page = ({ params }) => {
       <div className="bg-gray-200 py-5 px-5 md:px-12 lg:px-28">
         <div className="flex justify-between items-center">
           <Link href={"/"}>
-            <h1 className={`${cookie.className} text-3xl`}>StockHub</h1>
+            <h1 className={`${cookie.className} text-3xl`}>Skillify</h1>
           </Link>
           <button className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-black shadow-[-7px_7px_0px_#000000]">
             <Link href={"/admin"}>
