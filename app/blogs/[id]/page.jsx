@@ -6,6 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Cookie } from "next/font/google";
+import { InteractiveHoverButton } from "../../../Components/magicui/interactive-hover-button";
+import { LineShadowText } from "../../../Components/magicui/line-shadow-text";
+import { useTheme } from "next-themes";
 
 const cookie = Cookie({
   weight: "400",
@@ -27,18 +30,27 @@ const page = ({ params }) => {
     fetchBlogData();
   }, []);
 
+  const theme = useTheme();
+  const shadowColor = theme.resolvedTheme === "dark" ? "white" : "black";
+
   return data ? (
     <>
       <div className="bg-gray-200 py-5 px-5 md:px-12 lg:px-28">
         <div className="flex justify-between items-center">
           <Link href={"/"}>
-            <h1 className={`${cookie.className} text-3xl`}>StockHub</h1>
+            <h1 className="text-4xl font-bold">
+              Stock
+              <LineShadowText className="italic" shadowColor={shadowColor}>
+                Hub
+              </LineShadowText>
+            </h1>
           </Link>
-          <button className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-black shadow-[-7px_7px_0px_#000000]">
-            <Link href={"/admin"}>
-              Admin <Image src={assets.arrow} alt="Arrow" />
-            </Link>
-          </button>
+
+          <Link href={"/admin"}>
+            <InteractiveHoverButton className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6">
+              Admin
+            </InteractiveHoverButton>
+          </Link>
         </div>
         <div className="text-center my-24">
           <h1 className="text-2xl sm:text-5xl font-semibold max-w-[700px] mx-auto">
