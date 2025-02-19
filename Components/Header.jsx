@@ -1,4 +1,5 @@
 "use client";
+
 import { assets } from "@/Assets/assets";
 import axios from "axios";
 import Image from "next/image";
@@ -11,6 +12,10 @@ import { useTheme } from "next-themes";
 import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
 import { ShinyButton } from "./magicui/shiny-button";
 import { MorphingText } from "./magicui/morphing-text";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { cn } from "@/lib/utils";
+import { AnimatedShinyText } from "./magicui/animated-shiny-text";
+import { GridPattern } from "./magicui/grid-pattern";
 
 const texts = [
   "StockHub",
@@ -21,7 +26,6 @@ const texts = [
   "Commodities",
   "Tax",
   "Forex",
-  "Cryptocurrency",
 ];
 
 const cookie = Cookie({
@@ -66,7 +70,41 @@ const Header = () => {
           </InteractiveHoverButton>
         </Link>
       </div>
-      <div className="text-center my-8">
+      <div className="text-center my-28">
+        <div className="z-10 flex min-h-10 items-center justify-center">
+          <div
+            className={cn(
+              "group rounded-full border border-black bg-neutral-100 text-base text-white transition-all ease-in cursor-default hover:bg-neutral-200"
+            )}
+          >
+            <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out text-black hover:text-black hover:duration-300">
+              <span>✨ Introducing New UI</span>
+              <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+            </AnimatedShinyText>
+          </div>
+        </div>
+        
+          <GridPattern
+            squares={[
+              [4, 4],
+              [5, 1],
+              [8, 2],
+              [5, 3],
+              [5, 5],
+              [10, 10],
+              [12, 15],
+              [15, 10],
+              [10, 15],
+              [15, 10],
+              [10, 15],
+              [15, 10],
+            ]}
+            className={cn(
+              "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]",
+              "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12"
+            )}
+          />
+        
         <h1 className="text-3xl sm:text-8xl font-medium">
           <MorphingText texts={texts} />
         </h1>

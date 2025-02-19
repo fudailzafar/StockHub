@@ -1,16 +1,62 @@
-import { blog_data } from "@/Assets/assets";
 import React, { useEffect, useState } from "react";
-import BlogItem from "./BlogItem";
+import { motion } from "framer-motion";
 import axios from "axios";
+import BlogItem from "./BlogItem";
+
+// Define your category tabs here
+const categories = ["All", "Introduction", "Technical", "Fundamental"];
+
+// This component renders the fancy chip tabs
+const CategoryTabs = ({ selected, setSelected }) => {
+  return (
+    <div className="px-4 py-14 flex justify-center items-center flex-wrap gap-2">
+      {categories.map((tab) => (
+        <Chip
+          text={tab}
+          selected={selected === tab}
+          setSelected={setSelected}
+          key={tab}
+        />
+      ))}
+    </div>
+  );
+};
+
+// Chip component from hover.dev with Framer Motion animation
+const Chip = ({ text, selected, setSelected }) => {
+  return (
+    <button
+      onClick={() => setSelected(text)}
+      className={`${
+        selected
+          ? "text-white"
+          : "text-black hover:text-white hover:bg-black"
+      } text-3xl transition-colors px-2.5 py-0.5 rounded-md relative`}
+    >
+      <span className="relative z-10">{text}</span>
+      {selected && (
+        <motion.span
+          layoutId="pill-tab"
+          transition={{ type: "spring", duration: 0.5 }}
+          className="absolute inset-0 z-0 bg-black rounded-md"
+        />
+      )}
+    </button>
+  );
+};
 
 const BlogList = () => {
   const [menu, setMenu] = useState("All");
   const [blogs, setBlogs] = useState([]);
 
   const fetchBlogs = async () => {
-    const response = await axios.get("/api/blog");
-    setBlogs(response.data.blogs);
-    console.log(response.data.blogs);
+    try {
+      const response = await axios.get("/api/blog");
+      setBlogs(response.data.blogs);
+      console.log(response.data.blogs);
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
+    }
   };
 
   useEffect(() => {
@@ -19,59 +65,21 @@ const BlogList = () => {
 
   return (
     <div>
-      <div className="flex justify-center gap-6 my-10">
-        <button
-          onClick={() => setMenu("All")}
-          className={
-            menu === "All" ? "bg-black text-white py-1 px-4 rounded-sm" : ""
-          }
-        >
-          All
-        </button>
-        <button
-          onClick={() => setMenu("Introduction")}
-          className={
-            menu === "Introduction"
-              ? "bg-black text-white py-1 px-4 rounded-sm"
-              : ""
-          }
-        >
-          Introduction
-        </button>
-        <button
-          onClick={() => setMenu("Technical")}
-          className={
-            menu === "Technical" ? "bg-black text-white py-1 px-4 rounded-sm" : ""
-          }
-        >
-          Technical
-        </button>
-        <button
-          onClick={() => setMenu("Fundamental")}
-          className={
-            menu === "Fundamental"
-              ? "bg-black text-white py-1 px-4 rounded-sm"
-              : ""
-          }
-        >
-          Fundamental
-        </button>
-      </div>
+      <CategoryTabs selected={menu} setSelected={setMenu} />
+
       <div className="flex flex-wrap justify-around gap-1 gap-y-10 mb-16 xl:mx-24">
         {blogs
           .filter((item) => (menu === "All" ? true : item.category === menu))
-          .map((item, index) => {
-            return (
-              <BlogItem
-                key={index}
-                id={item._id}
-                image={item.image}
-                title={item.title}
-                description={item.description}
-                category={item.category}
-              />
-            );
-          })}
+          .map((item, index) => (
+            <BlogItem
+              key={index}
+              id={item._id}
+              image={item.image}
+              title={item.title}
+              description={item.description}
+              category={item.category}
+            />
+          ))}
       </div>
     </div>
   );

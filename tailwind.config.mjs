@@ -130,7 +130,18 @@ export default {
   					bottom: '50%',
   					right: '25%'
   				}
+  			},
+  			'shiny-text': {
+  				'0%, 90%, 100%': {
+  					'background-position': 'calc(-100% - var(--shiny-width)) 0'
+  				},
+  				'30%, 60%': {
+  					'background-position': 'calc(100% + var(--shiny-width)) 0'
+  				}
   			}
+  		},
+  		animation: {
+  			'shiny-text': 'shiny-text 8s infinite'
   		}
   	}
   },
