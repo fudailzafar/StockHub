@@ -45,7 +45,7 @@ const Header = () => {
         <p className="mt-10 max-w-[740px] m-auto text-xs sm:text-base md:text-lg">
           Your one stop guide to learn about the <b>stock markets</b>! People
           think that investing in stock markets is risky, deadly, and what not!
-          But Skillify is here to teach you how to{" "}
+          But StockHub is here to teach you how to{" "}
           <b>buy the castle you always wanted!</b> Welcome to the{" "}
           <b>MoneyLand!</b>
         </p>
