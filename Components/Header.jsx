@@ -56,7 +56,7 @@ const Header = () => {
     <div className="py-5 px-5 md:px-12 lg:px-28">
       <div className="flex justify-between items-center">
         <Link href={"/"}>
-          <h1 className="text-4xl font-bold">
+          <h1 className="text-2xl md:text-4xl font-bold">
             Stock
             <LineShadowText className="italic" shadowColor={shadowColor}>
               Hub
@@ -117,7 +117,7 @@ const Header = () => {
         </p>
         <form
           onSubmit={onSubmitHandler}
-          className="flex justify-between max-w-[500px] scale-75 sm:scale-100 mx-auto mt-10 border border-black shadow-[-7px_7px_0px_#000000]"
+          className="flex justify-between border-l rounded-3xl max-w-[500px] scale-75 sm:scale-100 mx-auto mt-10 border border-black"
           action=""
         >
           <input
@@ -125,10 +125,10 @@ const Header = () => {
             value={email}
             type="email"
             placeholder="Weekly Newsletter"
-            className="pl-4 outline-none"
+            className="pl-4 rounded-l-3xl outline-none"
           />
           <button type="submit">
-            <ShinyButton className="border-l rounded-none border-black py-4 px-4 sm:px-8 active:bg-gray-600 active:text-white">
+            <ShinyButton className="border-l rounded-none rounded-r-3xl border-black py-4 px-4 sm:px-8 active:bg-gray-600 active:text-white">
               Subscribe
             </ShinyButton>
           </button>

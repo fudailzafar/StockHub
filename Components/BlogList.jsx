@@ -9,7 +9,7 @@ const categories = ["All", "Introduction", "Technical", "Fundamental"];
 // This component renders the fancy chip tabs
 const CategoryTabs = ({ selected, setSelected }) => {
   return (
-    <div className="px-4 py-14 flex justify-center items-center flex-wrap gap-2">
+    <div className="px-4 py-10 flex justify-center items-center flex-wrap gap-2">
       {categories.map((tab) => (
         <Chip
           text={tab}
@@ -28,10 +28,8 @@ const Chip = ({ text, selected, setSelected }) => {
     <button
       onClick={() => setSelected(text)}
       className={`${
-        selected
-          ? "text-white"
-          : "text-black hover:text-white hover:bg-black"
-      } text-3xl transition-colors px-2.5 py-0.5 rounded-md relative`}
+        selected ? "text-white" : "text-black hover:text-white hover:bg-black"
+      } text-sm  md:text-3xl transition-colors px-2.5 py-1 rounded-md relative`}
     >
       <span className="relative z-10">{text}</span>
       {selected && (
