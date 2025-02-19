@@ -1,9 +1,7 @@
 "use client";
 
-import { assets } from "@/Assets/assets";
 import axios from "axios";
-import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Link from "next/link";
 import { Cookie } from "next/font/google";
@@ -15,17 +13,17 @@ import { MorphingText } from "./magicui/morphing-text";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
 import { AnimatedShinyText } from "./magicui/animated-shiny-text";
-import { GridPattern } from "./magicui/grid-pattern";
+import { Particles } from "./magicui/particles";
 
 const texts = [
   "StockHub",
   "One Stop Guide",
-  "Stocks",
+  "Stock Markets",
   "Personal Finance",
   "Real Estate",
-  "Commodities",
-  "Tax",
-  "Forex",
+  "Commodities & Gold",
+  "Tax Systems",
+  "Forex Trading",
 ];
 
 const cookie = Cookie({
@@ -35,6 +33,12 @@ const cookie = Cookie({
 });
 
 const Header = () => {
+  const { resolvedTheme } = useTheme();
+  const [color, setColor] = useState("#ffffff");
+
+  useEffect(() => {
+    setColor(resolvedTheme === "dark" ? "#ffffff" : "#000000");
+  }, [resolvedTheme]);
   const [email, setEmail] = useState("");
 
   const onSubmitHandler = async (e) => {
@@ -53,7 +57,7 @@ const Header = () => {
   const theme = useTheme();
   const shadowColor = theme.resolvedTheme === "dark" ? "white" : "black";
   return (
-    <div className="py-5 px-5 md:px-12 lg:px-28">
+    <div className="mb-10 md:mb-0 py-5 px-5 md:px-12 lg:px-28">
       <div className="flex justify-between items-center">
         <Link href={"/"}>
           <h1 className="text-2xl md:text-4xl font-bold">
@@ -83,32 +87,19 @@ const Header = () => {
             </AnimatedShinyText>
           </div>
         </div>
-        
-          <GridPattern
-            squares={[
-              [4, 4],
-              [5, 1],
-              [8, 2],
-              [5, 3],
-              [5, 5],
-              [10, 10],
-              [12, 15],
-              [15, 10],
-              [10, 15],
-              [15, 10],
-              [10, 15],
-              [15, 10],
-            ]}
-            className={cn(
-              "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]",
-              "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12"
-            )}
-          />
-        
+
+        <Particles
+          className="absolute inset-0 z-0"
+          quantity={100}
+          ease={80}
+          color={color}
+          refresh
+        />
+
         <h1 className="text-3xl sm:text-8xl font-medium">
           <MorphingText texts={texts} />
         </h1>
-        <p className="mt-10 max-w-[740px] m-auto text-xs sm:text-base md:text-lg">
+        <p className="mt-10 md:mt-28 max-w-[740px] m-auto text-xs sm:text-base md:text-lg">
           Your one stop guide to learn about the <b>stock markets</b>! People
           think that investing in stock markets is risky, deadly, and what not!
           But StockHub is here to teach you how to{" "}
@@ -117,15 +108,15 @@ const Header = () => {
         </p>
         <form
           onSubmit={onSubmitHandler}
-          className="flex justify-between border-l rounded-3xl max-w-[500px] scale-75 sm:scale-100 mx-auto mt-10 border border-black"
+          className="flex justify-between border-l rounded-3xl max-w-[500px] scale-75 sm:scale-100 mx-auto mt-5 md:mt-10 border border-black shadow-[-7px_7px_0px_#000000]"
           action=""
         >
           <input
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             type="email"
-            placeholder="Weekly Newsletter"
-            className="pl-4 rounded-l-3xl outline-none"
+            placeholder="weekly newsletter..."
+            className="pl-4 rounded-l-3xl outline-none w-full"
           />
           <button type="submit">
             <ShinyButton className="border-l rounded-none rounded-r-3xl border-black py-4 px-4 sm:px-8 active:bg-gray-600 active:text-white">

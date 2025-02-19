@@ -1,20 +1,14 @@
 "use client";
 import { assets } from "@/Assets/assets";
 import Footer from "@/Components/Footer";
+import BarLoader from "@/Components/BarLoader";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { Cookie } from "next/font/google";
 import { InteractiveHoverButton } from "../../../Components/magicui/interactive-hover-button";
 import { LineShadowText } from "../../../Components/magicui/line-shadow-text";
 import { useTheme } from "next-themes";
-
-const cookie = Cookie({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const page = ({ params }) => {
   const [data, setData] = useState(null);
@@ -96,7 +90,7 @@ const page = ({ params }) => {
       <Footer />
     </>
   ) : (
-    <div>Loading...</div> // Loading state
+    <BarLoader /> // Loading state
   );
 };
 

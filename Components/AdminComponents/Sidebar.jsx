@@ -3,15 +3,8 @@ import { assets } from "@/Assets/assets";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { Cookie } from "next/font/google";
 import { LineShadowText } from "../magicui/line-shadow-text";
 import { useTheme } from "next-themes";
-
-const cookie = Cookie({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const Sidebar = () => {
   const theme = useTheme();

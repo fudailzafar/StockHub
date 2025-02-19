@@ -4,6 +4,7 @@ import axios from "axios";
 import Image from "next/image";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { ShimmerButton } from "../../../Components/magicui/shimmer-button";
 
 const page = () => {
   const [image, setImage] = useState(false);
@@ -98,8 +99,12 @@ const page = () => {
           <option value="Fundamental">Fundamental</option>
         </select>
         <br />
-        <button type="submit" className="mt-8 w-40 h-12 bg-black text-white">
-          ADD
+        <button type="submit" className="my-8">
+          <ShimmerButton className="shadow-2xl">
+            <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+              ADD
+            </span>
+          </ShimmerButton>
         </button>
       </form>
     </>
