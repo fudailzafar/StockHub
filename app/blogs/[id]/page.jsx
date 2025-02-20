@@ -8,6 +8,8 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { InteractiveHoverButton } from "../../../Components/magicui/interactive-hover-button";
 import { LineShadowText } from "../../../Components/magicui/line-shadow-text";
+import { TextAnimate } from "@/Components/magicui/text-animate";
+
 import { useTheme } from "next-themes";
 
 const page = ({ params }) => {
@@ -32,7 +34,7 @@ const page = ({ params }) => {
       <div className="bg-gray-200 py-5 px-5 md:px-12 lg:px-28">
         <div className="flex justify-between items-center">
           <Link href={"/"}>
-            <h1 className="text-4xl font-bold">
+            <h1 className="text-2xl md:text-4xl font-bold">
               Stock
               <LineShadowText className="italic" shadowColor={shadowColor}>
                 Hub
@@ -48,7 +50,7 @@ const page = ({ params }) => {
         </div>
         <div className="text-center my-24">
           <h1 className="text-2xl sm:text-5xl font-semibold max-w-[700px] mx-auto">
-            {data.title}
+            <TextAnimate>{data.title}</TextAnimate>
           </h1>
           <Image
             className="mx-auto mt-6 border border-white rounded-full"

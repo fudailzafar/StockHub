@@ -28,7 +28,7 @@ const BlogItem = ({ title, description, category, image, id }) => {
         <p className="ml-5 mt-5 px-1 inline-block bg-black text-white text-sm">
           {category}
         </p>
-        <div className="p-5">
+        <div className="p-5 flex flex-col">
           <h5 className="mb-2 text-large font-medium tracking-tight text-gray-900">
             {title}
           </h5>
@@ -38,7 +38,7 @@ const BlogItem = ({ title, description, category, image, id }) => {
           ></p>
           <Link
             href={`/blogs/${id}`}
-            className="inline-flex items-center py-2 font-semibold text-center"
+            className="flex items-center justify-center absolute bottom-4 left-4 right-4 z-20 rounded-3xl border-2 border-white bg-black py-2 text-center font-mono font-black uppercase text-white backdrop-blur transition-colors hover:bg-white hover:text-black hover:border hover:border-black"
           >
             Read more{" "}
             <Image src={assets.arrow} className="ml-2" alt="" width={12} />
