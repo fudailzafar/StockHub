@@ -11,7 +11,7 @@ const BlogItem = ({ title, description, category, image, id }) => {
   const { theme } = useTheme();
   return (
     <MagicCard
-      className="max-w-[330px] max-h-[450px] sm:max-w-[300px] bg-white border"
+      className="max-w-[330px] min-h-[450px] sm:max-w-[300px] bg-white border"
       gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
     >
       

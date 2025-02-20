@@ -36,13 +36,13 @@ const page = () => {
               <th scope="col" className="hidden sm:block px-6 py-3">
                 Author Name
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-2 sm:px-6 py-3 text-sm">
                 Blog Title
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="hidden sm:block px-6 py-3">
                 Blog Date
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-2 sm:px-6 py-3">
                 Action
               </th>
             </tr>

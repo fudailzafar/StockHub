@@ -19,13 +19,13 @@ import { FiAlertCircle } from "react-icons/fi";
 
 const texts = [
   "StockHub",
-  "One Stop Guide",
-  "Stock Markets",
-  "Personal Finance",
+  "One Guide",
+  "Equities",
+  "Finance",
   "Real Estate",
   "Commodities",
   "Tax Systems",
-  "Forex Trading",
+  "Forex",
 ];
 
 const cookie = Cookie({
@@ -60,7 +60,7 @@ const Header = () => {
   const theme = useTheme();
   const shadowColor = theme.resolvedTheme === "dark" ? "white" : "black";
   return (
-    <div className="mb-10 md:mb-0 py-5 px-5 md:px-12 lg:px-28">
+    <div className="md:mb-0 py-5 px-5 md:px-12 lg:px-28">
       <div className="flex justify-between items-center">
         <Link href={"/"}>
           <h1 className="text-2xl md:text-4xl font-bold">
@@ -72,12 +72,12 @@ const Header = () => {
         </Link>
 
         <Link href={"/admin"}>
-          <InteractiveHoverButton className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6">
+          <InteractiveHoverButton className="flex items-center gap-2 font-medium py-1 px-5 sm:py-3 sm:px-6">
             Admin
           </InteractiveHoverButton>
         </Link>
       </div>
-      <div className="text-center my-28">
+      <div className="text-center my-40">
         <div className="z-10 flex min-h-10 items-center justify-center">
           <div
             className={cn(
@@ -105,7 +105,7 @@ const Header = () => {
         <h1 className="text-3xl sm:text-8xl font-medium">
           <MorphingText texts={texts} />
         </h1>
-        <p className="mt-10 max-w-[740px] m-auto text-xs sm:text-base md:text-lg text-center">
+        <p className="mt-4 max-w-[740px] m-auto text-xs sm:text-base md:text-lg text-center">
           Your one stop guide to learn about the <b>stock markets</b>! People
           think that investing in stock markets is risky, deadly, and what not!
           But StockHub is here to teach you how to{" "}

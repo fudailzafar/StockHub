@@ -2,6 +2,7 @@ import { assets } from "@/Assets/assets";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Twitter, Facebook, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -10,17 +11,17 @@ const Footer = () => {
         <h1 className="text-white">StockHub</h1>
       </Link>
       <p className="text-sm text-white">
-        All rights reserved. Copyright @StockHub
+        All rights reserved. © Copyright @StockHub
       </p>
-      <div className="flex">
+      <div className="flex gap-2">
         <Link href="https://www.facebook.com/">
-          <Image src={assets.facebook_icon} alt="" width={40} />
+          <Facebook className="text-white"/>
         </Link>
-        <Link href="https://www.google.com/">
-          <Image src={assets.googleplus_icon} alt="" width={40} />
+        <Link href="https://www.instagram.com/">
+        <Instagram className="text-white"/>
         </Link>
         <Link href="https://x.com/">
-          <Image src={assets.twitter_icon} alt="" width={40} />
+          <Twitter className="text-white" />
         </Link>
       </div>
     </div>

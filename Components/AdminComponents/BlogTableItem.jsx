@@ -25,11 +25,15 @@ const BlogTableItem = ({
         />
         <p>{author ? author : "No author"}</p>
       </th>
-      <td className="px-6 py-4">{title ? title : ""}</td>
-      <td className="px-6 py-4">{BlogDate.toDateString()}</td>
+      <td className="text-xs sm:text-sm px-2 sm:px-6 py-4">
+        {title ? title : ""}
+      </td>
+      <td className="px-2 sm:px-6 py-4 hidden sm:flex">
+        {BlogDate.toDateString()}
+      </td>
       <td
         onClick={() => deleteBlog(mongoId)}
-        className="px-6 py-4 cursor-pointer"
+        className="px-2 sm:px-6 text-center py-4 cursor-pointer"
       >
         x
       </td>
