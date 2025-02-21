@@ -5,17 +5,18 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Link from "next/link";
 import { Cookie } from "next/font/google";
-import { LineShadowText } from "./magicui/line-shadow-text";
 import { useTheme } from "next-themes";
+import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import { FiAlertCircle } from "react-icons/fi";
+import { LineShadowText } from "./magicui/line-shadow-text";
 import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
 import { ShinyButton } from "./magicui/shiny-button";
 import { MorphingText } from "./magicui/morphing-text";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
-import { cn } from "@/lib/utils";
 import { AnimatedShinyText } from "./magicui/animated-shiny-text";
 import { Particles } from "./magicui/particles";
-import { AnimatePresence, motion } from "framer-motion";
-import { FiAlertCircle } from "react-icons/fi";
+import { BorderBeam } from "./magicui/border-beam";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 const texts = [
   "StockHub",
@@ -77,15 +78,15 @@ const Header = () => {
           </InteractiveHoverButton>
         </Link>
       </div>
-      <div className="text-center my-40">
-        <div className="z-10 flex min-h-10 items-center justify-center">
+      <div className="text-center my-32">
+        <div className="z-10 flex min-h-10 items-center justify-center mb-6 md:mb-0">
           <div
             className={cn(
-              "group rounded-full border border-black bg-neutral-100 text-base text-white transition-all ease-in cursor-default hover:bg-neutral-200"
+              "group rounded-full border border-black bg-neutral-100 text-base text-white transition-all ease-in cursor-default hover:bg-neutral-200" 
             )}
           >
             <button onClick={() => setIsOpen(true)}>
-              <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out text-black hover:text-black hover:duration-300">
+              <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
                 <span>✨ Introducing New UI</span>
                 <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
               </AnimatedShinyText>
@@ -105,7 +106,7 @@ const Header = () => {
         <h1 className="text-3xl sm:text-8xl font-medium">
           <MorphingText texts={texts} />
         </h1>
-        <p className="mt-4 max-w-[740px] m-auto text-xs sm:text-base md:text-lg text-center">
+        <p className="mt-4 max-w-[740px] m-auto text-sm sm:text-base md:text-lg text-center">
           Your one stop guide to learn about the <b>stock markets</b>! People
           think that investing in stock markets is risky, deadly, and what not!
           But StockHub is here to teach you how to{" "}
@@ -114,21 +115,22 @@ const Header = () => {
         </p>
         <form
           onSubmit={onSubmitHandler}
-          className="flex justify-between border-l rounded-3xl max-w-[500px] scale-75 sm:scale-100 mx-auto mt-5 md:mt-10 border border-black shadow-[-7px_7px_0px_#000000]"
+          className="flex justify-between border-l rounded-3xl max-w-[500px] scale-75 sm:scale-100 mx-auto mt-5 md:mt-10 border border-gray-400 shadow-[-7px_7px_0px_#000000] md:hover:-translate-y-2 transition-all md:shadow-none md:hover:shadow-[-5px_5px_0px_#000000]"
           action=""
         >
           <input
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             type="email"
-            placeholder="weekly newsletter..."
+            placeholder="Weekly Newsletter!"
             className="pl-4 rounded-l-3xl outline-none w-full"
           />
           <button type="submit">
-            <ShinyButton className="border-l rounded-none rounded-r-3xl border-black py-4 px-4 sm:px-8 active:bg-gray-600 active:text-white">
+            <ShinyButton className="border-l rounded-none rounded-r-3xl border-gray-500 py-4 px-4 sm:px-8">
               Subscribe
             </ShinyButton>
           </button>
+          <BorderBeam duration={8} size={100} />
         </form>
       </div>
     </div>
@@ -182,15 +184,15 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
               <div className="flex gap-2">
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="bg-transparent hover:bg-white/10 transition-colors text-white font-semibold w-full py-2 rounded"
+                  className="bg-transparent hover:bg-white/10 transition-colors border border-white text-white font-semibold w-full py-2 rounded"
                 >
-                  Uncool!
+                  Nay!
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
                   className="bg-white hover:opacity-90 transition-opacity text-black font-semibold w-full py-2 rounded"
                 >
-                  Cool!
+                  Yay!
                 </button>
               </div>
             </div>

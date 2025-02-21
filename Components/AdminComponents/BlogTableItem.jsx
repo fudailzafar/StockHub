@@ -1,4 +1,5 @@
 import { assets } from "@/Assets/assets";
+import { X } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -35,7 +36,7 @@ const BlogTableItem = ({
         onClick={() => deleteBlog(mongoId)}
         className="px-2 sm:px-6 text-center py-4 cursor-pointer"
       >
-        x
+        <X />
       </td>
     </tr>
   );

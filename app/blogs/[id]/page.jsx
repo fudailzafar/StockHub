@@ -77,17 +77,6 @@ const page = ({ params }) => {
           className="blog-content"
           dangerouslySetInnerHTML={{ __html: data.description }}
         ></div>
-
-        <div className="my-24">
-          <p className="text-black font-semibold my-4">
-            Share this article on Social Media
-          </p>
-          <div className="flex">
-            <Image src={assets.facebook_icon} width={50} alt="Facebook" />
-            <Image src={assets.twitter_icon} width={50} alt="Twitter" />
-            <Image src={assets.googleplus_icon} width={50} alt="Google+" />
-          </div>
-        </div>
       </div>
       <Footer />
     </>

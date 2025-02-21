@@ -71,7 +71,7 @@ const page = () => {
           name="title"
           onChange={onChangeHandler}
           value={data.title}
-          className="w-full sm:w-[500px] mt-4 px-4 py-3 border"
+          className="rounded-sm w-full sm:w-[500px] mt-4 px-4 py-3 border"
           type="text"
           placeholder="Type here"
           required
@@ -81,7 +81,7 @@ const page = () => {
           name="description"
           onChange={onChangeHandler}
           value={data.description}
-          className="w-full sm:w-[500px] mt-4 px-4 py-3 border"
+          className="rounded-sm w-full sm:w-[500px] mt-4 px-4 py-3 border"
           type="text"
           placeholder="write content here"
           rows={6}
@@ -92,7 +92,7 @@ const page = () => {
           name="category"
           onChange={onChangeHandler}
           value={data.category}
-          className="w-40 mt-4 px-4 py-3 border text-gray-500"
+          className="rounded-sm w-40 mt-4 px-4 py-3 border text-gray-500"
         >
           <option value="Introduction">Introduction</option>
           <option value="Technical">Technical</option>
@@ -102,7 +102,7 @@ const page = () => {
         <button type="submit" className="my-8">
           <ShimmerButton className="shadow-2xl">
             <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
-              ADD
+              ADD BLOG
             </span>
           </ShimmerButton>
         </button>

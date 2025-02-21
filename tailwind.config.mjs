@@ -173,6 +173,28 @@ export default {
   				to: {
   					transform: 'translateY(calc(-100% - var(--gap)))'
   				}
+  			},
+  			meteor: {
+  				'0%': {
+  					transform: 'rotate(var(--angle)) translateX(0)',
+  					opacity: '1'
+  				},
+  				'70%': {
+  					opacity: '1'
+  				},
+  				'100%': {
+  					transform: 'rotate(var(--angle)) translateX(-500px)',
+  					opacity: '0'
+  				}
+  			},
+  			rippling: {
+  				'0%': {
+  					opacity: '1'
+  				},
+  				'100%': {
+  					transform: 'scale(2)',
+  					opacity: '0'
+  				}
   			}
   		},
   		animation: {
@@ -180,7 +202,9 @@ export default {
   			'shimmer-slide': 'shimmer-slide var(--speed) ease-in-out infinite alternate',
   			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
   			marquee: 'marquee var(--duration) infinite linear',
-  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite'
+  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+  			meteor: 'meteor 5s linear infinite',
+  			rippling: 'rippling var(--duration) ease-out'
   		}
   	}
   },
