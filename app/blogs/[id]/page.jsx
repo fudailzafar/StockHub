@@ -9,30 +9,44 @@ import React, { useEffect, useState } from "react";
 import { InteractiveHoverButton } from "../../../Components/magicui/interactive-hover-button";
 import { LineShadowText } from "../../../Components/magicui/line-shadow-text";
 import { TextAnimate } from "@/Components/magicui/text-animate";
-
+import { Particles } from "@/Components/magicui/particles";
 import { useTheme } from "next-themes";
 
 const page = ({ params }) => {
   const [data, setData] = useState(null);
 
-  const fetchBlogData = async () => {
-    const response = await axios.get("/api/blog", {
-      params: { id: params.id },
-    });
-    setData(response.data);
-  };
-
   useEffect(() => {
+    const fetchBlogData = async () => {
+      const response = await axios.get("/api/blog", {
+        params: { id: params.id },
+      });
+      setData(response.data);
+    };
+
     fetchBlogData();
   }, []);
 
-  const theme = useTheme();
-  const shadowColor = theme.resolvedTheme === "dark" ? "white" : "black";
+  const { resolvedTheme } = useTheme();
+  const shadowColor = resolvedTheme === "dark" ? "white" : "black";
+  const [color, setColor] = useState("#ffffff");
+
+  useEffect(() => {
+    setColor(resolvedTheme === "dark" ? "#ffffff" : "#000000");
+  }, [resolvedTheme]);
 
   return data ? (
     <>
-      <div className="bg-gray-200 py-5 px-5 md:px-12 lg:px-28">
-        <div className="flex justify-between items-center">
+      <div className="relative bg-gray-200 py-5 px-5 md:px-12 lg:px-28">
+        {/* Particles in the background */}
+        <Particles
+          className="absolute inset-0 z-0"
+          quantity={100}
+          ease={80}
+          color={color}
+          refresh
+        />
+
+        <div className="relative z-10 flex justify-between items-center">
           <Link href={"/"}>
             <h1 className="text-2xl md:text-4xl font-bold">
               Stock
@@ -48,7 +62,8 @@ const page = ({ params }) => {
             </InteractiveHoverButton>
           </Link>
         </div>
-        <div className="text-center my-24">
+
+        <div className="relative z-10 text-center my-24">
           <h1 className="text-2xl sm:text-5xl font-semibold max-w-[700px] mx-auto">
             <TextAnimate>{data.title}</TextAnimate>
           </h1>
@@ -64,7 +79,8 @@ const page = ({ params }) => {
           </p>
         </div>
       </div>
-      <div className="mx-5 max-w-[800px] md:mx-auto mt-[-100px] mb-10">
+
+      <div className="relative z-10 mx-5 max-w-[800px] md:mx-auto mt-[-100px] mb-10">
         <Image
           className="border-4 border-white"
           src={data.image}

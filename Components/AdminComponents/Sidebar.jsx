@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import { LineShadowText } from "../magicui/line-shadow-text";
 import { useTheme } from "next-themes";
+import { CirclePlus, FilePenLine, Mail } from "lucide-react";
 
 const Sidebar = () => {
   const theme = useTheme();
@@ -27,21 +28,21 @@ const Sidebar = () => {
             href="/admin/addProduct"
             className="flex items-center border border-black gap-3 rounded-xl md:rounded-3xl font-medium px-3 py-2 bg-white shadow-[-5px_5px_0px_#000000] md:hover:-translate-y-2 transition-all md:shadow-none md:hover:shadow-[-5px_5px_0px_#000000]"
           >
-            <Image src={assets.add_icon} alt="" width={28} />{" "}
+            <CirclePlus width={28} />
             <p className="hidden sm:block">Add blogs</p>
           </Link>
           <Link
             href="/admin/blogList"
             className="mt-5 flex items-center border border-black gap-3 rounded-xl md:rounded-3xl font-medium px-3 py-2 bg-white shadow-[-5px_5px_0px_#000000] md:hover:-translate-y-2 transition-all md:shadow-none md:hover:shadow-[-5px_5px_0px_#000000]"
           >
-            <Image src={assets.blog_icon} alt="" width={28} />{" "}
+            <FilePenLine width={28} />
             <p className="hidden sm:block">Blog lists</p>
           </Link>
           <Link
             href="/admin/subscriptions"
             className="mt-5 flex items-center border border-black gap-3 rounded-xl md:rounded-3xl font-medium px-3 py-2 bg-white shadow-[-5px_5px_0px_#000000] md:hover:-translate-y-2 transition-all md:shadow-none md:hover:shadow-[-5px_5px_0px_#000000]"
           >
-            <Image src={assets.email_icon} alt="" width={28} />{" "}
+            <Mail width={28} />
             <p className="hidden sm:block">Subscriptions</p>
           </Link>
         </div>

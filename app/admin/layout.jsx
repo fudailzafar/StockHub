@@ -4,6 +4,11 @@ import Image from "next/image";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+export const metadata = {
+  title: "Admin",
+  description: "The Admin Panel of StockHub!",
+};
+
 export default function Layout({ children }) {
   return (
     <>
