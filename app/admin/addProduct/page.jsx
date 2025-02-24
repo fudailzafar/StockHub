@@ -66,14 +66,14 @@ const page = () => {
           hidden
           required
         />
-        <p className="text-xl mt-4">Blog title</p>
+        <p className="text-xl mt-4">Blog Title</p>
         <input
           name="title"
           onChange={onChangeHandler}
           value={data.title}
           className="rounded-sm w-full sm:w-[500px] mt-4 px-4 py-3 border"
           type="text"
-          placeholder="Type here"
+          placeholder="Your blog title here"
           required
         />
         <p className="text-xl mt-4">Blog Description</p>
@@ -83,7 +83,7 @@ const page = () => {
           value={data.description}
           className="rounded-sm w-full sm:w-[500px] mt-4 px-4 py-3 border"
           type="text"
-          placeholder="write content here"
+          placeholder="Your blog content here"
           rows={6}
           required
         />

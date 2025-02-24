@@ -2,7 +2,6 @@
 import BlogList from "@/Components/BlogList";
 import Footer from "@/Components/Footer";
 import Header from "@/Components/Header";
-import { MarqueeDemo } from "@/Components/MarqueeDemo";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
