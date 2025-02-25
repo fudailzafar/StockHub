@@ -1,6 +1,5 @@
 "use client";
-import { assets } from "@/Assets/assets";
-import Image from "next/image";
+
 import Link from "next/link";
 import React from "react";
 import { LineShadowText } from "../magicui/line-shadow-text";

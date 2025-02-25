@@ -2,7 +2,6 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Meteors } from "@/Components/magicui/meteors";
 import { Particles } from "../../Components/magicui/particles";
 
 export default function AdminPage() {
@@ -14,7 +13,6 @@ export default function AdminPage() {
   }, [resolvedTheme]);
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background">
-      <Meteors number={30} />
       <span className="pointer-events-none z-10 whitespace-pre-wrap text-center text-4xl sm:text-8xl font-semibold leading-none absolute top-20 md:top-28">
         Admin Panel
       </span>

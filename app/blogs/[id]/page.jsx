@@ -1,5 +1,5 @@
 "use client";
-import { assets } from "@/Assets/assets";
+
 import Footer from "@/Components/Footer";
 import BarLoader from "@/Components/BarLoader";
 import axios from "axios";

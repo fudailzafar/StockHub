@@ -82,7 +82,7 @@ const Header = () => {
         <div className="z-10 flex min-h-10 items-center justify-center mb-6 md:mb-0">
           <div
             className={cn(
-              "group rounded-full border border-black bg-neutral-100 text-base text-white transition-all ease-in cursor-default hover:bg-neutral-200" 
+              "group rounded-full border border-black bg-neutral-100 text-base text-white transition-all ease-in cursor-default hover:bg-neutral-200"
             )}
           >
             <button onClick={() => setIsOpen(true)}>
@@ -182,12 +182,6 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
                 </ul>
               </p>
               <div className="flex gap-2">
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="bg-transparent hover:bg-white/10 transition-colors border border-white text-white font-semibold w-full py-2 rounded"
-                >
-                  Nay!
-                </button>
                 <button
                   onClick={() => setIsOpen(false)}
                   className="bg-white hover:opacity-90 transition-opacity text-black font-semibold w-full py-2 rounded"
