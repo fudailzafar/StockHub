@@ -57,7 +57,7 @@ const page = ({ params }) => {
           </Link>
 
           <Link href={"/admin"}>
-            <InteractiveHoverButton className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6">
+            <InteractiveHoverButton className="flex items-center gap-2 font-medium py-1 px-5 sm:py-3 sm:px-6">
               Admin
             </InteractiveHoverButton>
           </Link>

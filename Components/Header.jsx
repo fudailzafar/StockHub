@@ -125,11 +125,12 @@ const Header = () => {
             placeholder="Weekly Newsletter!"
             className="pl-4 rounded-l-3xl outline-none w-full"
           />
-          <button type="submit">
-            <ShinyButton className="border-l rounded-none rounded-r-3xl border-gray-500 py-4 px-4 sm:px-8">
-              Subscribe
-            </ShinyButton>
-          </button>
+          <ShinyButton
+            type="submit"
+            className="border-l rounded-none rounded-r-3xl border-gray-500 py-4 px-4 sm:px-8"
+          >
+            <span>Subscribe</span>
+          </ShinyButton>
           <BorderBeam duration={8} size={100} />
         </form>
       </div>
