@@ -74,11 +74,11 @@ const Header = () => {
 
         <Link href={"/admin"}>
           <InteractiveHoverButton className="flex items-center gap-2 font-medium py-1 px-5 sm:py-3 sm:px-6">
-            Admin
+            Login
           </InteractiveHoverButton>
         </Link>
       </div>
-      <div className="text-center my-32">
+      <div className="text-center my-36">
         <div className="z-10 flex min-h-10 items-center justify-center mb-6 md:mb-0">
           <div
             className={cn(
@@ -156,7 +156,7 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
             onClick={(e) => e.stopPropagation()}
             className="bg-black text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
           >
-            <FiAlertCircle className="text-white/10 rotate-12 text-[250px] absolute z-0 -top-24 -left-24" />
+            <FiAlertCircle className="text-white/85 rotate-12 text-[250px] absolute z-0 -top-24 -left-24" />
             <div className="relative z-10">
               <div className="bg-white w-16 h-16 mb-2 rounded-full text-3xl text-black grid place-items-center mx-auto">
                 <FiAlertCircle />
@@ -167,18 +167,16 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
               <p className="text-justify mb-6">
                 <ul>
                   <li>
-                    - We've rolled out a fresh UI update to enhance your reading
-                    and navigation experience!
+                    - We've introduced a brand new authentication system to
+                    enhance security and streamline access!
                   </li>
                   <li>
-                    - The new design features a clean, modern look with improved
-                    typography, better spacing, and a streamlined layout that
-                    makes it easier to explore our content.{" "}
+                    - StockHub now has a fresh domain: <b>stockhub.fun</b>,
+                    making it easier than ever to find and use our platform.
                   </li>
                   <li>
-                    - Plus, it's fully responsive across all devices, ensuring a
-                    seamless experience whether you're on mobile, tablet, or
-                    desktop. Enjoy the upgrade!
+                    - These updates ensure a seamless and secure experience
+                    across all devices. Enjoy the new and improved StockHub!
                   </li>
                 </ul>
               </p>
