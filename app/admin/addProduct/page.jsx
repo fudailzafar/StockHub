@@ -4,7 +4,7 @@ import axios from "axios";
 import Image from "next/image";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { ShimmerButton } from "../../../Components/magicui/shimmer-button";
+import { ShimmerButton } from "@/Components/magicui/shimmer-button";
 
 const page = () => {
   const [image, setImage] = useState(false);

@@ -1,7 +1,7 @@
 "use client";
 
 import Sidebar from "@/Components/AdminComponents/Sidebar";
-import { ClerkProvider, SignOutButton, UserButton } from "@clerk/nextjs";
+import { ClerkProvider, UserButton } from "@clerk/nextjs";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

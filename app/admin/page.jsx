@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Particles } from "../../Components/magicui/particles";
+import { Particles } from "@/Components/magicui/particles";
 
 export default function AdminPage() {
   const { resolvedTheme } = useTheme();
