@@ -11,7 +11,7 @@ const LoadDB = async () => {
 
 LoadDB();
 
-// API Endpoint to get all blogs
+// API endpoint to get all blogs
 
 export async function GET(request) {
   const blogId = request.nextUrl.searchParams.get("id");
@@ -43,7 +43,7 @@ export async function handler(req, res) {
   }
 }
 
-// API Endpoint for uploading blogs
+// API endpoint for uploading blogs
 
 export async function POST(request) {
   try {
@@ -84,7 +84,7 @@ export async function POST(request) {
   }
 }
 
-// Creating API Endpoint ot delete Blog
+// Creating API Endpoint to delete Blog
 
 export async function DELETE(request) {
   const id = await request.nextUrl.searchParams.get("id");

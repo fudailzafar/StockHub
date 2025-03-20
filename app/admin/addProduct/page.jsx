@@ -122,6 +122,7 @@ const page = () => {
           <option value="Introduction">Introduction</option>
           <option value="Technical">Technical</option>
           <option value="Fundamental">Fundamental</option>
+          <option value="Personal">Personal</option>
         </select>
         <br />
         <button type="submit" className="my-8">

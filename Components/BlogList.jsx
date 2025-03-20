@@ -4,7 +4,7 @@ import axios from "axios";
 import BlogItem from "./BlogItem";
 
 // Define your category tabs here
-const categories = ["All", "Introduction", "Technical", "Fundamental"];
+const categories = ["All", "Introduction", "Technical", "Fundamental", "Personal"];
 
 // This component renders the fancy chip tabs
 const CategoryTabs = ({ selected, setSelected }) => {
@@ -22,7 +22,7 @@ const CategoryTabs = ({ selected, setSelected }) => {
   );
 };
 
-// Chip component from hover.dev with Framer Motion animation
+// Chip component with Framer Motion animation
 const Chip = ({ text, selected, setSelected }) => {
   return (
     <button
