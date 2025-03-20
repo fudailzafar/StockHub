@@ -38,23 +38,29 @@ const page = () => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+  
+    if (!image) {
+      toast.error("Please upload an image.");
+      return;
+    }
+  
     const formData = new FormData();
     formData.append("title", data.title);
     formData.append("description", data.description);
     formData.append("category", data.category);
     formData.append("author", data.author);
     formData.append("authorImg", data.authorImg);
-    formData.append("image", image); // Sends File Object
-
+    formData.append("image", image);
+  
     try {
       const response = await axios.post("/api/blog", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-
+  
       if (response.data.success) {
         toast.success(response.data.msg);
         setImage(null);
-        setData({ title: "", description: "", category: "Fundamental" });
+        setData({ title: "", description: "", category: "Fundamental", image: "" });
       } else {
         toast.error("Error adding blog");
       }
@@ -63,6 +69,7 @@ const page = () => {
       toast.error("Error uploading blog");
     }
   };
+  
   return (
     <>
       <form onSubmit={onSubmitHandler} className="pt-5 px-5 sm:pt-12 sm:pl-16">
@@ -82,7 +89,7 @@ const page = () => {
           type="file"
           id="image"
           hidden
-          required
+          
         />
         <p className="text-xl mt-4">Blog Title</p>
         <input
