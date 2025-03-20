@@ -1,4 +1,3 @@
-import { assets } from "@/Assets/assets";
 import { X } from "lucide-react";
 import Image from "next/image";
 import React from "react";
@@ -21,7 +20,7 @@ const BlogTableItem = ({
         <Image
           width={40}
           height={40}
-          src={authorImg ? authorImg : assets.profile_icon}
+          src={authorImg ? authorImg : "/author_img.png"}
           alt=""
         />
         <p>{author ? author : "No author"}</p>

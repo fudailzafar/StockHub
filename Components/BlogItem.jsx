@@ -1,11 +1,11 @@
 "use client";
 
-import { assets } from "@/Assets/assets";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useTheme } from "next-themes";
 import { MagicCard } from "./magicui/magic-card";
+import { ArrowRight } from "lucide-react";
 
 const BlogItem = ({ title, description, category, image, id }) => {
   const { theme } = useTheme();
@@ -40,7 +40,7 @@ const BlogItem = ({ title, description, category, image, id }) => {
           className="flex items-center justify-center absolute bottom-4 left-4 right-4 z-20 rounded-3xl border-2 border-white bg-black py-2 text-center font-mono font-black uppercase text-white backdrop-blur transition-colors hover:bg-white hover:text-black hover:border hover:border-black"
         >
           Read more{" "}
-          <Image src={assets.arrow} className="ml-2" alt="" width={12} />
+          <ArrowRight width={15} className="ml-2"/>
         </Link>
       </div>
     </MagicCard>

@@ -1,12 +1,9 @@
 "use client";
-import { assets } from "@/Assets/assets";
+
 import Sidebar from "@/Components/AdminComponents/Sidebar";
-import { ClerkProvider, SignOutButton } from "@clerk/nextjs";
-import Image from "next/image";
+import { ClerkProvider, SignOutButton, UserButton } from "@clerk/nextjs";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useClerk } from "@clerk/nextjs";
-import { RippleButton } from "@/Components/magicui/ripple-button";
 
 export default function Layout({ children }) {
   return (
@@ -16,11 +13,9 @@ export default function Layout({ children }) {
           <ToastContainer theme="dark" />
           <Sidebar />
           <div className="flex flex-col w-full">
-            <div className="flex items-center justify-between w-full py-3 max-h-[60px] px-12 border-b border-black">
-              <h3 className="font-medium">Admin Panel</h3>
-              <SignOutButton>
-                <RippleButton rippleColor="#ADD8E6">Sign Out</RippleButton>
-              </SignOutButton>
+            <div className="flex items-center justify-between w-full py-4 max-h-[60px] px-12 border-b border-black gap-3 md:gap-0">
+              <h3 className="font-medium md:text-xl">Admin Panel</h3>
+              <UserButton afterSignOutUrl="/" />
             </div>
             {children}
           </div>

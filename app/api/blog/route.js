@@ -1,6 +1,7 @@
 import { ConnectDB } from "@/lib/config/db";
 import BlogModel from "@/lib/models/BlogModel";
-import { writeFile } from "fs/promises";
+import cloudinary from "@/lib/config/cloudinary";
+
 const { NextResponse } = require("next/server");
 const fs = require("fs");
 
@@ -10,7 +11,7 @@ const LoadDB = async () => {
 
 LoadDB();
 
-// APIEndpoint to get all blogs
+// API Endpoint to get all blogs
 
 export async function GET(request) {
   const blogId = request.nextUrl.searchParams.get("id");
@@ -23,32 +24,64 @@ export async function GET(request) {
   }
 }
 
+// API endpoint for Cloudinary to store images
+export async function handler(req, res) {
+  if (req.method === "POST") {
+    try {
+      const { image } = req.body; // Base64 image string or file URL
+
+      const uploadResponse = await cloudinary.uploader.upload(image, {
+        folder: "uploads", // Optional: Organize images in a folder
+      });
+
+      res.status(200).json({ url: uploadResponse.secure_url });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  } else {
+    res.status(405).json({ message: "Method Not Allowed" });
+  }
+}
+
 // API Endpoint for uploading blogs
 
 export async function POST(request) {
-  const formData = await request.formData();
-  const timestamp = Date.now();
+  try {
+    const formData = await request.formData();
+    const image = formData.get("image");
 
-  const image = formData.get("image");
-  const imageByteData = await image.arrayBuffer();
-  const buffer = Buffer.from(imageByteData);
-  const path = `./public/${timestamp}_${image.name}`;
-  await writeFile(path, buffer);
-  const imgUrl = `/${timestamp}_${image.name}`;
+    if (!image) {
+      return NextResponse.json({ success: false, msg: "No image uploaded" });
+    }
 
-  const blogData = {
-    title: `${formData.get("title")}`,
-    description: `${formData.get("description")}`,
-    category: `${formData.get("category")}`,
-    author: `${formData.get("author")}`,
-    image: `${imgUrl}`,
-    authorImg: `${formData.get("authorImg")}`,
-  };
+    // Convert File to Buffer
+    const arrayBuffer = await image.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
 
-  await BlogModel.create(blogData);
-  console.log("Blog Saved");
+    // Upload image to Cloudinary
+    const uploadResponse = await cloudinary.uploader.upload(
+      `data:${image.type};base64,${buffer.toString("base64")}`,
+      { folder: "blogs" }
+    );
 
-  return NextResponse.json({ success: true, msg: "Blog Added" });
+    // Blog Data with Cloudinary URL
+    const blogData = {
+      title: formData.get("title"),
+      description: formData.get("description"),
+      category: formData.get("category"),
+      author: formData.get("author"),
+      authorImg: formData.get("authorImg"),
+      image: uploadResponse.secure_url, // Cloudinary Image URL
+    };
+
+    await BlogModel.create(blogData);
+    console.log("Blog Saved");
+
+    return NextResponse.json({ success: true, msg: "Blog Added" });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ success: false, msg: "Error adding blog" });
+  }
 }
 
 // Creating API Endpoint ot delete Blog

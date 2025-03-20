@@ -1,6 +1,5 @@
 "use client";
 
-import { assets } from "@/Assets/assets";
 import axios from "axios";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -15,6 +14,7 @@ const page = () => {
     category: "Introduction",
     author: "Fudail Mohammed Zafar",
     authorImg: "/author_img.png",
+    image: "",
   });
 
   const onChangeHandler = (event) => {
@@ -22,6 +22,18 @@ const page = () => {
     const value = event.target.value;
     setData((data) => ({ ...data, [name]: value }));
     console.log(data);
+  };
+
+  const onImageChange = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      setImage(file); // Save the file object
+      setData((prev) => ({
+        ...prev,
+        image: URL.createObjectURL(file), // Create a temporary URL for preview
+      }));
+    }
   };
 
   const onSubmitHandler = async (e) => {
@@ -32,18 +44,23 @@ const page = () => {
     formData.append("category", data.category);
     formData.append("author", data.author);
     formData.append("authorImg", data.authorImg);
-    formData.append("image", image);
-    const response = await axios.post("/api/blog", formData);
-    if (response.data.success) {
-      toast.success(response.data.msg);
-      setImage(false);
-      setData({
-        title: "",
-        description: "",
-        category: "Fundamental",
+    formData.append("image", image); // Sends File Object
+
+    try {
+      const response = await axios.post("/api/blog", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
       });
-    } else {
-      toast.error("Error");
+
+      if (response.data.success) {
+        toast.success(response.data.msg);
+        setImage(null);
+        setData({ title: "", description: "", category: "Fundamental" });
+      } else {
+        toast.error("Error adding blog");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Error uploading blog");
     }
   };
   return (
@@ -53,7 +70,7 @@ const page = () => {
         <label htmlFor="image">
           <Image
             className="mt-4"
-            src={!image ? assets.upload_area : URL.createObjectURL(image)}
+            src={data.image || "/upload_area.png"}
             width={140}
             height={70}
             alt=""
@@ -61,7 +78,7 @@ const page = () => {
         </label>
 
         <input
-          onChange={(e) => setImage(e.target.files[0])}
+          onChange={onImageChange}
           type="file"
           id="image"
           hidden
