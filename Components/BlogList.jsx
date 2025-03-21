@@ -53,7 +53,6 @@ const BlogList = () => {
     try {
       const response = await axios.get("/api/blog");
       setBlogs(response.data.blogs);
-      console.log(response.data.blogs);
     } catch (error) {
       console.error("Error fetching blogs:", error);
     }
@@ -76,7 +75,7 @@ const BlogList = () => {
               id={item._id}
               image={item.image}
               title={item.title}
-              description={item.description}
+              thumbnailDescription={item.thumbnailDescription}
               category={item.category}
             />
           ))}

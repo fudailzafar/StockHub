@@ -10,6 +10,7 @@ const page = () => {
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
     title: "",
+    thumbnailDescription: "",
     description: "",
     category: "Introduction",
     author: "Fudail Mohammed Zafar",
@@ -21,7 +22,6 @@ const page = () => {
     const name = event.target.name;
     const value = event.target.value;
     setData((data) => ({ ...data, [name]: value }));
-    console.log(data);
   };
 
   const onImageChange = (e) => {
@@ -38,29 +38,36 @@ const page = () => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-  
+
     if (!image) {
       toast.error("Please upload an image.");
       return;
     }
-  
+
     const formData = new FormData();
     formData.append("title", data.title);
+    formData.append("thumbnailDescription", data.thumbnailDescription);
     formData.append("description", data.description);
     formData.append("category", data.category);
     formData.append("author", data.author);
     formData.append("authorImg", data.authorImg);
     formData.append("image", image);
-  
+
     try {
       const response = await axios.post("/api/blog", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-  
+
       if (response.data.success) {
         toast.success(response.data.msg);
         setImage(null);
-        setData({ title: "", description: "", category: "Fundamental", image: "" });
+        setData({
+          title: "",
+          thumbnailDescription: "",
+          description: "",
+          category: "Fundamental",
+          image: "",
+        });
       } else {
         toast.error("Error adding blog");
       }
@@ -69,7 +76,7 @@ const page = () => {
       toast.error("Error uploading blog");
     }
   };
-  
+
   return (
     <>
       <form onSubmit={onSubmitHandler} className="pt-5 px-5 sm:pt-12 sm:pl-16">
@@ -84,13 +91,7 @@ const page = () => {
           />
         </label>
 
-        <input
-          onChange={onImageChange}
-          type="file"
-          id="image"
-          hidden
-          
-        />
+        <input onChange={onImageChange} type="file" id="image" hidden />
         <p className="text-xl mt-4">Blog Title</p>
         <input
           name="title"
@@ -101,6 +102,20 @@ const page = () => {
           placeholder="Your blog title here"
           required
         />
+        <p className="text-xl mt-4">Thumbnail Description</p>
+        <input
+          name="thumbnailDescription"
+          onChange={onChangeHandler}
+          value={data.thumbnailDescription}
+          className="rounded-sm w-full sm:w-[500px] mt-4 px-4 py-3 border"
+          type="text"
+          maxLength={120}
+          placeholder="Your thumbnail description here"
+          required
+        />
+        <p className="text-sm text-gray-500 mt-1">
+          {data.thumbnailDescription.length}/120 characters
+        </p>
         <p className="text-xl mt-4">Blog Description</p>
         <textarea
           name="description"

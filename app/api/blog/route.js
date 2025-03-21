@@ -67,6 +67,7 @@ export async function POST(request) {
     // Blog Data with Cloudinary URL
     const blogData = {
       title: formData.get("title"),
+      thumbnailDescription: formData.get("thumbnailDescription"),
       description: formData.get("description"),
       category: formData.get("category"),
       author: formData.get("author"),
@@ -75,7 +76,6 @@ export async function POST(request) {
     };
 
     await BlogModel.create(blogData);
-    console.log("Blog Saved");
 
     return NextResponse.json({ success: true, msg: "Blog Added" });
   } catch (error) {

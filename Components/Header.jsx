@@ -156,7 +156,7 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
             onClick={(e) => e.stopPropagation()}
             className="bg-black text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
           >
-            <FiAlertCircle className="text-white/85 rotate-12 text-[250px] absolute z-0 -top-24 -left-24" />
+            <FiAlertCircle className="text-white/40 rotate-12 text-[250px] absolute z-0 -top-24 -left-24" />
             <div className="relative z-10">
               <div className="bg-white w-16 h-16 mb-2 rounded-full text-3xl text-black grid place-items-center mx-auto">
                 <FiAlertCircle />
@@ -167,16 +167,19 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
               <p className="text-justify mb-6">
                 <ul>
                   <li>
-                    - We've introduced a brand new authentication system to
-                    enhance security and streamline access!
+                    📢 <strong>New Domain:</strong> StockHub has moved to{" "}
+                    <strong>stockhub.in</strong> for a more localized and
+                    seamless experience.
                   </li>
                   <li>
-                    - StockHub now has a fresh domain: <b>stockhub.fun</b>,
-                    making it easier than ever to find and use our platform.
+                    📂 <strong>New Category – Personal Finance:</strong> We've
+                    added a dedicated <strong>Personal Finance</strong> category
+                    to help you manage your money better.
                   </li>
                   <li>
-                    - These updates ensure a seamless and secure experience
-                    across all devices. Enjoy the new and improved StockHub!
+                    🎨 <strong>Brand-New UI:</strong> Enjoy a refreshed, modern
+                    design that makes navigating StockHub smoother and more
+                    intuitive than ever!
                   </li>
                 </ul>
               </p>
