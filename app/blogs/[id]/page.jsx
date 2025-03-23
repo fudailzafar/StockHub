@@ -8,7 +8,6 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { InteractiveHoverButton } from "@/Components/magicui/interactive-hover-button";
 import { LineShadowText } from "@/Components/magicui/line-shadow-text";
-import { TextAnimate } from "@/Components/magicui/text-animate";
 import { Particles } from "@/Components/magicui/particles";
 import { useTheme } from "next-themes";
 
@@ -65,7 +64,7 @@ const page = ({ params }) => {
 
         <div className="relative z-10 text-center my-24">
           <h1 className="text-2xl sm:text-5xl font-semibold max-w-[700px] mx-auto">
-            <TextAnimate>{data.title}</TextAnimate>
+            {data.title}
           </h1>
           <Image
             className="mx-auto mt-6 border border-white rounded-full"
