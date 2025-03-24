@@ -29,13 +29,7 @@ const texts = [
   "Forex",
 ];
 
-const cookie = Cookie({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const Header = () => {
+const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { resolvedTheme } = useTheme();
   const [color, setColor] = useState("#ffffff");
@@ -199,4 +193,4 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
   );
 };
 
-export default Header;
+export default Hero;

@@ -8,7 +8,8 @@ const inter = Inter({
 
 export const metadata = {
   title: "StockHub",
-  description: "Your one-stop guide to learn about stock markets!",
+  description: "Your one-stop guide to learn about finance!",
+  icons: "/chart-no-axes-column-increasing.png"
 };
 
 export default function RootLayout({ children }) {

@@ -1,7 +1,7 @@
 "use client";
 
 import Footer from "@/Components/Footer";
-import BarLoader from "@/Components/BarLoader";
+import BarLoader from "@/Components/Loader";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";

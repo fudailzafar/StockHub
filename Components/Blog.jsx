@@ -7,7 +7,7 @@ import { useTheme } from "next-themes";
 import { MagicCard } from "./magicui/magic-card";
 import { ArrowRight } from "lucide-react";
 
-const BlogItem = ({ title, thumbnailDescription, category, image, id }) => {
+const Blog = ({ title, thumbnailDescription, category, image, id }) => {
   const { theme } = useTheme();
   return (
     <MagicCard
@@ -45,4 +45,4 @@ const BlogItem = ({ title, thumbnailDescription, category, image, id }) => {
   );
 };
 
-export default BlogItem;
+export default Blog;

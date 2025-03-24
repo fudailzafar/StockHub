@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
-import BlogItem from "./BlogItem";
+import BlogItem from "./Blog";
 
-// Define your category tabs here
+// Category tabs here
 const categories = ["All", "Introduction", "Technical", "Fundamental", "Personal"];
 
 // This component renders the fancy chip tabs
@@ -45,7 +45,7 @@ const Chip = ({ text, selected, setSelected }) => {
   );
 };
 
-const BlogList = () => {
+const BlogGrid = () => {
   const [menu, setMenu] = useState("All");
   const [blogs, setBlogs] = useState([]);
 
@@ -84,4 +84,4 @@ const BlogList = () => {
   );
 };
 
-export default BlogList;
+export default BlogGrid;

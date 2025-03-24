@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const Example = () => {
   return (
     <div className="grid place-content-center bg-black px-4 py-24 min-h-screen">
-      <BarLoader />
+      <Loader />
     </div>
   );
 };
@@ -25,7 +25,7 @@ const variants = {
   },
 };
 
-const BarLoader = () => {
+const Loader = () => {
   return (
     <motion.div
       transition={{

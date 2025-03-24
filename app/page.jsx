@@ -1,19 +1,19 @@
 "use client";
 
-import BlogList from "@/Components/BlogList";
-import Footer from "@/Components/Footer";
-import Header from "@/Components/Header";
+import { ClerkProvider } from "@clerk/nextjs";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
+import Hero from "@/Components/Hero";
+import BlogGrid from "@/Components/BlogGrid";
+import Footer from "@/Components/Footer";
 
 export default function Home() {
   return (
     <ClerkProvider>
       <ToastContainer theme="dark" />
-      <Header />
-      <BlogList />
+      <Hero />
+      <BlogGrid />
       <Footer />
     </ClerkProvider>
   );
