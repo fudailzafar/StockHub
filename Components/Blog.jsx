@@ -1,47 +1,116 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useTheme } from "next-themes";
-import { MagicCard } from "./magicui/magic-card";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Blog = ({ title, thumbnailDescription, category, image, id }) => {
   const { theme } = useTheme();
   return (
-    <MagicCard
-      className="max-w-[330px] min-h-[450px] sm:max-w-[300px] bg-white border"
-      gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
+    <motion.div
+      whileHover="hover"
+      transition={{
+        duration: 1,
+        ease: "backInOut",
+      }}
+      variants={{
+        hover: {
+          scale: 1.05,
+        },
+      }}
+      className="relative h-96 w-80 shrink-0 overflow-hidden rounded-xl bg-black p-8"
     >
-      <Link href={`/blogs/${id}`}>
-        {" "}
-        <Image
-          src={image}
-          alt=""
-          width={400}
-          height={400}
-          className="border-b border-black rounded-t-xl"
-        />
-      </Link>
-      <p className="ml-5 mt-5 px-3 py-0.5 inline-block bg-gray-800 rounded-full  text-white text-sm">
-        {category}
-      </p>
-      <div className="p-5 flex flex-col">
-        <h5 className="mb-2 text-large font-medium tracking-tight text-gray-900">
+      <div className="relative z-10 text-white">
+        <span className="mb-3 block w-fit rounded-full bg-white/30 px-3 py-0.5 text-sm font-light text-white">
+          {category}
+        </span>
+        <motion.span
+          initial={{ scale: 0.85 }}
+          variants={{
+            hover: {
+              scale: 1,
+            },
+          }}
+          transition={{
+            duration: 1,
+            ease: "backInOut",
+          }}
+          className="my-2 block origin-top-left font-mono text-3xl font-black leading-[1.2]"
+        >
           {title}
-        </h5>
-        <p className="mb-3 text-sm tracking-tight text-gray-700">
-          {thumbnailDescription}
-        </p>
+        </motion.span>
+        <p>{thumbnailDescription}</p>
+      </div>
+      <button className="absolute bottom-4 left-4 right-4 z-20 rounded border-2 border-white bg-white py-2 text-center font-mono font-black uppercase text-neutral-800 backdrop-blur transition-colors hover:bg-white/30 hover:text-white">
         <Link
           href={`/blogs/${id}`}
-          className="flex items-center justify-center absolute bottom-4 left-4 right-4 z-20 rounded-3xl border-2 border-white bg-black py-2 text-center font-mono font-black uppercase text-white backdrop-blur transition-colors hover:bg-white hover:text-black hover:border hover:border-black"
+          className="flex items-center justify-center"
         >
           Read more <ArrowRight width={15} className="ml-2" />
         </Link>
-      </div>
-    </MagicCard>
+      </button>
+      <Background />
+    </motion.div>
+  );
+};
+
+const Background = () => {
+  return (
+    <motion.svg
+      width="320"
+      height="384"
+      viewBox="0 0 320 384"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="absolute inset-0 z-0"
+      variants={{
+        hover: {
+          scale: 1.5,
+        },
+      }}
+      transition={{
+        duration: 1,
+        ease: "backInOut",
+      }}
+    >
+      <motion.circle
+        variants={{
+          hover: {
+            scaleY: 0.5,
+            y: -25,
+          },
+        }}
+        transition={{
+          duration: 1,
+          ease: "backInOut",
+          delay: 0.2,
+        }}
+        cx="160.5"
+        cy="114.5"
+        r="101.5"
+        fill="#262626"
+      />
+      <motion.ellipse
+        variants={{
+          hover: {
+            scaleY: 2.25,
+            y: -25,
+          },
+        }}
+        transition={{
+          duration: 1,
+          ease: "backInOut",
+          delay: 0.2,
+        }}
+        cx="160.5"
+        cy="265.5"
+        rx="101.5"
+        ry="43.5"
+        fill="#262626"
+      />
+    </motion.svg>
   );
 };
 
