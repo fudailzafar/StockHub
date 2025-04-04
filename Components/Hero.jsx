@@ -4,19 +4,14 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Link from "next/link";
-import { Cookie } from "next/font/google";
 import { useTheme } from "next-themes";
-import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiAlertCircle } from "react-icons/fi";
-import { LineShadowText } from "./magicui/line-shadow-text";
-import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
-import { ShinyButton } from "./magicui/shiny-button";
-import { MorphingText } from "./magicui/morphing-text";
-import { AnimatedShinyText } from "./magicui/animated-shiny-text";
-import { Particles } from "./magicui/particles";
-import { BorderBeam } from "./magicui/border-beam";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { LineShadowText } from "./line-shadow-text";
+import { MorphingText } from "./morphing-text";
+import { AnimatedShinyText } from "./animated-shiny-text";
+import Particles from "./particles";
+import { ArrowRight } from "lucide-react";
 
 const texts = [
   "StockHub",
@@ -32,12 +27,12 @@ const texts = [
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { resolvedTheme } = useTheme();
-  const [color, setColor] = useState("#ffffff");
+  const [color, setColor] = useState("#f3f4f6");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
-    setColor(resolvedTheme === "dark" ? "#ffffff" : "#000000");
+    setColor(resolvedTheme === "dark" ? "#ffffff" : "#f5f5f5"); // or even lighter like "#f9fafb"
   }, [resolvedTheme]);
-  const [email, setEmail] = useState("");
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -54,11 +49,12 @@ const Hero = () => {
 
   const theme = useTheme();
   const shadowColor = theme.resolvedTheme === "dark" ? "white" : "black";
+
   return (
     <div className="md:mb-0 py-5 px-5 md:px-12 lg:px-28">
       <div className="flex justify-between items-center">
-        <Link href={"/"}>
-          <h1 className="text-2xl md:text-4xl font-bold">
+        <Link href="/">
+          <h1 className="text-2xl font-bold">
             Stock
             <LineShadowText className="italic" shadowColor={shadowColor}>
               Hub
@@ -66,23 +62,20 @@ const Hero = () => {
           </h1>
         </Link>
 
-        <Link href={"/admin"}>
-          <InteractiveHoverButton className="flex items-center gap-2 font-medium py-1 px-5 sm:py-3 sm:px-6">
+        <Link href="/admin">
+          <button className="px-6 py-2 border-2 border-black font-medium bg-white text-black w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px]">
             Login
-          </InteractiveHoverButton>
+          </button>
         </Link>
       </div>
+
       <div className="text-center my-36">
         <div className="z-10 flex min-h-10 items-center justify-center mb-6 md:mb-0">
-          <div
-            className={cn(
-              "group rounded-full border border-black bg-neutral-100 text-base text-white transition-all ease-in cursor-default hover:bg-neutral-200"
-            )}
-          >
+          <div className="group rounded-full border border-black bg-neutral-100 text-base text-white transition-all ease-in cursor-default hover:bg-neutral-200">
             <button onClick={() => setIsOpen(true)}>
-              <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                <span>✨ Introducing New UI</span>
-                <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+              <AnimatedShinyText className="inline-flex items-center justify-center px-3 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
+                <span className="text-sm">✨ Introducing New UI</span>
+                <ArrowRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
               </AnimatedShinyText>
             </button>
             <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -91,7 +84,7 @@ const Hero = () => {
 
         <Particles
           className="absolute inset-0 z-0"
-          quantity={100}
+          quantity={40}
           ease={80}
           color={color}
           refresh
@@ -100,6 +93,7 @@ const Hero = () => {
         <h1 className="text-3xl sm:text-8xl font-medium">
           <MorphingText texts={texts} />
         </h1>
+
         <p className="mt-4 max-w-[740px] m-auto text-sm sm:text-base md:text-lg text-center">
           Your one stop guide to learn about the <b>stock markets</b>! People
           think that investing in stock markets is risky, deadly, and what not!
@@ -107,25 +101,25 @@ const Hero = () => {
           <b>buy the castle you always wanted!</b> Welcome to the{" "}
           <b>MoneyLand!</b>
         </p>
+
         <form
           onSubmit={onSubmitHandler}
-          className="flex justify-between border-l rounded-3xl max-w-[500px] scale-75 sm:scale-100 mx-auto mt-5 md:mt-10 border border-gray-400 shadow-[-7px_7px_0px_#000000] md:hover:-translate-y-2 transition-all md:shadow-none md:hover:shadow-[-5px_5px_0px_#000000]"
-          action=""
+          className="relative flex items-center rounded-3xl max-w-[500px] scale-75 sm:scale-100 mx-auto mt-5 md:mt-10 border border-gray-400 shadow-[-7px_7px_0px_#000000] md:hover:-translate-y-2 transition-all md:shadow-none md:hover:shadow-[-5px_5px_0px_#000000]"
         >
           <input
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             type="email"
             placeholder="Weekly Newsletter!"
-            className="pl-4 rounded-l-3xl outline-none w-full"
+            className="w-full p-4 pr-32 pl-4 rounded-3xl outline-none"
           />
-          <ShinyButton
+
+          <button
             type="submit"
-            className="border-l rounded-none rounded-r-3xl border-gray-500 py-4 px-4 sm:px-8"
+            className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black text-white px-4 py-2 text-sm font-medium shadow-md"
           >
-            <span>Subscribe</span>
-          </ShinyButton>
-          <BorderBeam duration={8} size={100} />
+            Subscribe
+          </button>
         </form>
       </div>
     </div>

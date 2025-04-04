@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import React from "react";
-import { LineShadowText } from "../magicui/line-shadow-text";
+import { LineShadowText } from "../line-shadow-text";
 import { useTheme } from "next-themes";
 import { CirclePlus, FilePenLine, Mail } from "lucide-react";
 

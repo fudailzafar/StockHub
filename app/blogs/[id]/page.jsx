@@ -6,9 +6,9 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { InteractiveHoverButton } from "@/Components/magicui/interactive-hover-button";
-import { LineShadowText } from "@/Components/magicui/line-shadow-text";
-import { Particles } from "@/Components/magicui/particles";
+import { InteractiveHoverButton } from "@/Components/interactive-hover-button";
+import { LineShadowText } from "@/Components/line-shadow-text";
+import { Particles } from "@/Components/particles";
 import { useTheme } from "next-themes";
 
 const page = ({ params }) => {

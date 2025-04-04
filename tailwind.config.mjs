@@ -197,16 +197,7 @@ export default {
   				}
   			}
   		},
-  		animation: {
-  			'shiny-text': 'shiny-text 8s infinite',
-  			'shimmer-slide': 'shimmer-slide var(--speed) ease-in-out infinite alternate',
-  			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
-  			marquee: 'marquee var(--duration) infinite linear',
-  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
-  			meteor: 'meteor 5s linear infinite',
-  			rippling: 'rippling var(--duration) ease-out'
-  		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 };

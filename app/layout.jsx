@@ -1,4 +1,4 @@
-import { Outfit, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -9,7 +9,7 @@ const inter = Inter({
 export const metadata = {
   title: "StockHub",
   description: "Your one-stop guide to learn about finance!",
-  icons: "/chart-no-axes-column-increasing.png"
+  icons: "/chart-no-axes-column-increasing.png",
 };
 
 export default function RootLayout({ children }) {
