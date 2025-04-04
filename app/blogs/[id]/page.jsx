@@ -6,9 +6,8 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { InteractiveHoverButton } from "@/Components/interactive-hover-button";
 import { LineShadowText } from "@/Components/line-shadow-text";
-import { Particles } from "@/Components/particles";
+import  Particles  from "@/Components/particles";
 import { useTheme } from "next-themes";
 
 const page = ({ params }) => {
@@ -39,8 +38,8 @@ const page = ({ params }) => {
         {/* Particles in the background */}
         <Particles
           className="absolute inset-0 z-0"
-          quantity={100}
-          ease={80}
+          quantity={40}
+          ease={0}
           color={color}
           refresh
         />
@@ -56,9 +55,9 @@ const page = ({ params }) => {
           </Link>
 
           <Link href={"/admin"}>
-            <InteractiveHoverButton className="flex items-center gap-2 font-medium py-1 px-5 sm:py-3 sm:px-6">
+            <button className="px-6 py-2 border-2 border-black font-medium bg-white text-black w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px]">
               Login
-            </InteractiveHoverButton>
+            </button>
           </Link>
         </div>
 
