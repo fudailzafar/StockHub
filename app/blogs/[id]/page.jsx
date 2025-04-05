@@ -7,7 +7,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { LineShadowText } from "@/Components/line-shadow-text";
-import  Particles  from "@/Components/Particles";
 import { useTheme } from "next-themes";
 import DotExpandButton from "@/Components/DotExpandButton";
 
@@ -36,15 +35,6 @@ const page = ({ params }) => {
   return data ? (
     <>
       <div className="relative bg-gray-200 py-5 px-5 md:px-12 lg:px-28">
-        {/* Particles in the background */}
-        <Particles
-          className="absolute inset-0 z-0"
-          quantity={40}
-          ease={0}
-          color={color}
-          refresh
-        />
-
         <div className="relative z-10 flex justify-between items-center">
           <Link href={"/"}>
             <h1 className="text-2xl font-bold">
