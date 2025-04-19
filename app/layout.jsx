@@ -30,13 +30,14 @@ export const metadata = {
     card: "summary_large_image",
     title: "StockHub",
     description: "Your one-stop guide to learn about finance!",
-    images: ["/og-stockhub.png"],
+    images: ["https://stockhub.fun/og-stockhub.png"],
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head />
       <body className={`${inter.variable} antialiased`}>{children}</body>
     </html>
   );
