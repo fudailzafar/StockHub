@@ -7,8 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { LineShadowText } from "@/Components/line-shadow-text";
-import  Particles  from "@/Components/particles";
+import Particles from "@/Components/particles";
 import { useTheme } from "next-themes";
+import { FiArrowRight } from "react-icons/fi";
 
 const page = ({ params }) => {
   const [data, setData] = useState(null);
@@ -55,8 +56,11 @@ const page = ({ params }) => {
           </Link>
 
           <Link href={"/admin"}>
-            <button className="px-6 py-2 border-2 border-black font-medium bg-white text-black w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px]">
-              Login
+            <button className="group flex h-10 items-center gap-2 rounded-full bg-neutral-300 pl-3 pr-4 transition-all duration-300 ease-in-out hover:bg-black hover:pl-2 hover:text-white active:bg-neutral-700">
+              <span className="rounded-full bg-black p-1 text-sm transition-colors duration-300 group-hover:bg-white">
+                <FiArrowRight className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-black group-active:-rotate-45" />
+              </span>
+              <span>Admin</span>
             </button>
           </Link>
         </div>
