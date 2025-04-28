@@ -9,7 +9,13 @@ const inter = Inter({
 export const metadata = {
   title: "StockHub",
   description: "Your one-stop guide to learn about finance!",
-  icons: "/stockhub.png",
+  keywords:
+    "finance, investing, stock market, learn stocks, StockHub, financial education, personal finance",
+  author: "Fudail",
+  icons: {
+    icon: "/stockhub.png",
+    shortcut: "/stockhub.png",
+  },
   openGraph: {
     title: "StockHub",
     description: "Your one-stop guide to learn about finance!",
@@ -23,6 +29,7 @@ export const metadata = {
         alt: "StockHub Logo and Tagline",
       },
     ],
+    siteName: "StockHub",
     locale: "en_US",
     type: "website",
   },
@@ -32,6 +39,10 @@ export const metadata = {
     description: "Your one-stop guide to learn about finance!",
     images: ["https://stockhub.fun/og-stockhub.png"],
   },
+  alternates: {
+    canonical: "https://stockhub.fun",
+  },
+  robots: "index, follow",
 };
 
 export default function RootLayout({ children }) {
