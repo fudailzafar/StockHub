@@ -1,4 +1,4 @@
-# 📈 StockHub – A Next.js Blogging App for Stock Markets  
+# 📈 StockHub
 
 StockHub is a modern and responsive blogging platform designed to help users learn about stock markets in a structured way. Built with **Next.js, React, and Tailwind CSS**, this platform enables users to explore, create, and manage blog content related to financial markets.  
 
