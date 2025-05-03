@@ -13,8 +13,8 @@ export const metadata = {
     "finance, investing, stock market, learn stocks, StockHub, financial education, personal finance",
   author: "Fudail",
   icons: {
-    icon: "/stockhub.png",
-    shortcut: "/stockhub.png",
+    icon: "https://stockhub.fun/stockhub.png",
+    shortcut: "https://stockhub.fun/stockhub.png",
   },
   openGraph: {
     title: "StockHub",
