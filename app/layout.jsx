@@ -24,8 +24,8 @@ export const metadata = {
     images: [
       {
         url: "https://stockhub.fun/og-stockhub.png",
-        width: 1200,
-        height: 630,
+        width: 800,
+        height: 600,
         alt: "StockHub Logo and Tagline",
       },
     ],
