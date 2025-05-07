@@ -9,7 +9,7 @@ const inter = Inter({
 export const metadata = {
   title: "StockHub - Simplifying Stock Market Learning",
   description: "Your one-stop guide to learn about finance! Learn about stocks, investing, and personal finance with StockHub.",
-  icons: "/stockhub.png",
+  icons: "/logo.png",
   keywords:
     "finance, investing, stock market, learn stocks, StockHub, financial education, personal finance",
   author: "Fudail",
@@ -20,7 +20,7 @@ export const metadata = {
     siteName: "StockHub",
     images: [
       {
-        url: "https://stockhub.fun/og_image.png",
+        url: "https://stockhub.fun/banner.png",
         width: 1200,
         height: 630,
         alt: "StockHub Logo and Tagline",
@@ -33,7 +33,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "StockHub - Simplifying Stock Market Learning",
     description: "Your one-stop guide to learn about finance!",
-    images: ["https://stockhub.fun/og_image.png"],
+    images: ["https://stockhub.fun/banner.png"],
   },
   alternates: {
     canonical: "https://stockhub.fun",
