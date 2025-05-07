@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import {
   FiChevronDown,
@@ -9,6 +11,7 @@ import {
 } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { ChartNoAxesColumnIncreasing } from "lucide-react";
+import Link from "next/link";
 
 export const Example = () => {
   return (
@@ -34,20 +37,25 @@ const Sidebar = () => {
       <TitleSection open={open} />
 
       <div className="space-y-1">
-        <Option
-          Icon={FiHome}
-          title="Dashboard"
-          selected={selected}
-          setSelected={setSelected}
-          open={open}
-        />
-        <Option
-          Icon={FiPlusCircle}
-          title="Add Blogs"
-          selected={selected}
-          setSelected={setSelected}
-          open={open}
-        />
+        <Link href={"/admin"}>
+          <Option
+            Icon={FiHome}
+            title="Dashboard"
+            selected={selected}
+            setSelected={setSelected}
+            open={open}
+          />
+        </Link>
+        <Link href="/admin/addProduct">
+          <Option
+            Icon={FiPlusCircle}
+            title="Add Blogs"
+            selected={selected}
+            setSelected={setSelected}
+            open={open}
+          />
+        </Link>
+        <Link href="/admin/blogList">
         <Option
           Icon={FiFilePlus}
           title="Blog Lists"
@@ -55,13 +63,16 @@ const Sidebar = () => {
           setSelected={setSelected}
           open={open}
         />
-        <Option
-          Icon={FiMail}
-          title="Subscriptions"
-          selected={selected}
-          setSelected={setSelected}
-          open={open}
-        />
+        </Link>
+        <Link href="/admin/subscriptions">
+          <Option
+            Icon={FiMail}
+            title="Subscriptions"
+            selected={selected}
+            setSelected={setSelected}
+            open={open}
+          />
+        </Link>
       </div>
 
       <ToggleClose open={open} setOpen={setOpen} />
