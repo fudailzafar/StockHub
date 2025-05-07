@@ -4,7 +4,13 @@ import axios from "axios";
 import BlogItem from "./Blog";
 
 // Category tabs here
-const categories = ["All", "Introduction", "Technical", "Fundamental", "Personal"];
+const categories = [
+  "All",
+  "Introduction",
+  "Technical",
+  "Fundamental",
+  "Personal",
+];
 
 // This component renders the fancy chip tabs
 const CategoryTabs = ({ selected, setSelected }) => {

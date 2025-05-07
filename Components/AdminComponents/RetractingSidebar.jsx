@@ -56,13 +56,13 @@ const Sidebar = () => {
           />
         </Link>
         <Link href="/admin/blogList">
-        <Option
-          Icon={FiFilePlus}
-          title="Blog Lists"
-          selected={selected}
-          setSelected={setSelected}
-          open={open}
-        />
+          <Option
+            Icon={FiFilePlus}
+            title="Blog Lists"
+            selected={selected}
+            setSelected={setSelected}
+            open={open}
+          />
         </Link>
         <Link href="/admin/subscriptions">
           <Option

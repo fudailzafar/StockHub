@@ -11,7 +11,7 @@ export default function Layout({ children }) {
       <ClerkProvider>
         <div className="flex">
           <ToastContainer theme="dark" />
-          <Example/>
+          <Example />
           <div className="flex flex-col w-full">
             <div className="flex items-center justify-between w-full py-4 max-h-[60px] px-12 border-b border-black gap-3 md:gap-0">
               <h3 className="font-medium md:text-xl">Admin Panel</h3>
