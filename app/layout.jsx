@@ -7,16 +7,16 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "StockHub - Simplifying Stock Market Learning",
+  title: "StockHub | Your one-stop guide to learn about finance!",
   description:
-    "Your one-stop guide to learn about finance! Learn about stocks, investing, and personal finance with StockHub.",
+    "People think that investing in stock markets is risky, deadly, and what not! But StockHub is here to teach you how to buy the castle you always wanted! Welcome to the MoneyLand!",
   icons: "/logo.png",
   keywords:
     "finance, investing, stock market, learn stocks, StockHub, financial education, personal finance",
   author: "Fudail",
   openGraph: {
-    title: "StockHub - Simplifying Stock Market Learning",
-    description: "Your one-stop guide to learn about finance!",
+    title: "StockHub | Your one-stop guide to learn about finance!",
+    description: "People think that investing in stock markets is risky, deadly, and what not! But StockHub is here to teach you how to buy the castle you always wanted! Welcome to the MoneyLand!",
     url: "https://stockhub.fun",
     siteName: "StockHub",
     images: [
@@ -32,8 +32,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "StockHub - Simplifying Stock Market Learning",
-    description: "Your one-stop guide to learn about finance!",
+    title: "StockHub | Your one-stop guide to learn about finance!",
+    description: "People think that investing in stock markets is risky, deadly, and what not! But StockHub is here to teach you how to buy the castle you always wanted! Welcome to the MoneyLand!",
     images: ["https://stockhub.fun/banner.png"],
   },
   alternates: {
