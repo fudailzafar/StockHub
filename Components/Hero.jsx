@@ -9,7 +9,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FiAlertCircle, FiArrowRight } from "react-icons/fi";
 import { LineShadowText } from "./line-shadow-text";
 import { MorphingText } from "./morphing-text";
-import { AnimatedShinyText } from "./animated-shiny-text";
 import Particles from "./particles";
 import { ArrowRight } from "lucide-react";
 
@@ -74,15 +73,26 @@ const Hero = () => {
 
       <div className="text-center my-36">
         <div className="z-10 flex min-h-10 items-center justify-center mb-6 md:mb-0">
-          <div className="group rounded-full border border-black bg-neutral-100 text-base text-white transition-all ease-in cursor-default hover:bg-neutral-200">
+          
             <button onClick={() => setIsOpen(true)}>
-              <AnimatedShinyText className="inline-flex items-center justify-center px-3 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                <span className="text-sm">✨ Introducing New UI</span>
-                <ArrowRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
-              </AnimatedShinyText>
+              <div className="mb-1.5 w-fit rounded-full bg-zinc-600">
+                <a
+                  href="#"
+                  rel="nofollow"
+                  className="flex origin-top-left items-center rounded-full border border-zinc-900 bg-white p-0.5 text-sm transition-transform hover:-rotate-2"
+                >
+                  <span className="rounded-full bg-[#FF6154] px-2 py-0.5 font-medium text-white">
+                    HEY!
+                  </span>
+                  <span className="ml-1.5 mr-1 inline-block">
+                    ✨ Introducing New UI
+                  </span>
+                  <ArrowRight className="mr-2 inline-block" />
+                </a>
+              </div>
             </button>
             <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
-          </div>
+          
         </div>
 
         <Particles
