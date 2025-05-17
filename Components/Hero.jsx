@@ -11,6 +11,7 @@ import { LineShadowText } from "./line-shadow-text";
 import { MorphingText } from "./morphing-text";
 import Particles from "./particles";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 const texts = [
   "StockHub",
@@ -52,14 +53,12 @@ const Hero = () => {
   return (
     <div className="md:mb-0 py-5 px-5 md:px-12 lg:px-28">
       <div className="flex justify-between items-center">
-        <Link href="/">
-          <h1 className="text-2xl font-bold">
-            Stock
-            <LineShadowText className="italic" shadowColor={shadowColor}>
-              Hub
-            </LineShadowText>
-          </h1>
-        </Link>
+        <div className="flex flex-row">
+          <Link href="/" className="flex flex-row justify-center items-center gap-2 font-semibold ">
+            <Image src={"/logo.png"} width={50} height={50} alt="logo"/>
+            <h1>StockHub</h1>
+          </Link>
+        </div>
 
         <Link href="/admin">
           <button className="group flex h-10 items-center gap-2 rounded-full bg-neutral-200 pl-3 pr-4 transition-all duration-300 ease-in-out hover:bg-black hover:pl-2 hover:text-white active:bg-neutral-700">
@@ -73,26 +72,24 @@ const Hero = () => {
 
       <div className="text-center my-36">
         <div className="z-10 flex min-h-10 items-center justify-center mb-6 md:mb-0">
-          
-            <button onClick={() => setIsOpen(true)}>
-              <div className="mb-1.5 w-fit rounded-full bg-zinc-600">
-                <a
-                  href="#"
-                  rel="nofollow"
-                  className="flex origin-top-left items-center rounded-full border border-zinc-900 bg-white p-0.5 text-sm transition-transform hover:-rotate-2"
-                >
-                  <span className="rounded-full bg-[#FF6154] px-2 py-0.5 font-medium text-white">
-                    HEY!
-                  </span>
-                  <span className="ml-1.5 mr-1 inline-block">
-                    ✨ Introducing New UI
-                  </span>
-                  <ArrowRight className="mr-2 inline-block" />
-                </a>
-              </div>
-            </button>
-            <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
-          
+          <button onClick={() => setIsOpen(true)}>
+            <div className="mb-1.5 w-fit rounded-full bg-zinc-600">
+              <a
+                href="#"
+                rel="nofollow"
+                className="flex origin-top-left items-center rounded-full border border-zinc-900 bg-white p-0.5 text-sm transition-transform hover:-rotate-2"
+              >
+                <span className="rounded-full bg-[#FF6154] px-2 py-0.5 font-medium text-white">
+                  HEY!
+                </span>
+                <span className="ml-1.5 mr-1 inline-block">
+                  ✨ Introducing New UI
+                </span>
+                <ArrowRight className="mr-2 inline-block" />
+              </a>
+            </div>
+          </button>
+          <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
 
         <Particles

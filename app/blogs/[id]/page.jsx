@@ -6,7 +6,6 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { LineShadowText } from "@/Components/line-shadow-text";
 import Particles from "@/Components/particles";
 import { useTheme } from "next-themes";
 import { FiArrowRight } from "react-icons/fi";
@@ -46,14 +45,12 @@ const page = ({ params }) => {
         />
 
         <div className="relative z-10 flex justify-between items-center">
-          <Link href={"/"}>
-            <h1 className="text-2xl md:text-4xl font-bold">
-              Stock
-              <LineShadowText className="italic" shadowColor={shadowColor}>
-                Hub
-              </LineShadowText>
-            </h1>
+          <div className="flex flex-row">
+          <Link href="/" className="flex flex-row justify-center items-center gap-2 font-semibold ">
+            <Image src={"/logo.png"} width={50} height={50} alt="logo"/>
+            <h1 className="text-base">StockHub</h1>
           </Link>
+        </div>
 
           <Link href={"/admin"}>
             <button className="group flex h-10 items-center gap-2 rounded-full bg-neutral-300 pl-3 pr-4 transition-all duration-300 ease-in-out hover:bg-black hover:pl-2 hover:text-white active:bg-neutral-700">
