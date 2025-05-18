@@ -10,7 +10,7 @@ export const metadata = {
   title: "StockHub | Your one-stop guide to learn about finance!",
   description:
     "People think that investing in stock markets is risky, deadly, and what not! But StockHub is here to teach you how to buy the castle you always wanted! Welcome to the MoneyLand!",
-  icons: "/logo.png",
+  icons: "https://stockhub.fun/favicon.ico",
   keywords:
     "finance, investing, stock market, learn stocks, StockHub, financial education, personal finance",
   author: "Fudail",
