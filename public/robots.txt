@@ -1,3 +1,3 @@
 User-agent: *
-
+Allow: /
 Sitemap: https://stockhub.fun/sitemap.xml
