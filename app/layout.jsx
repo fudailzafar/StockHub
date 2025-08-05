@@ -8,12 +8,12 @@ const inter = Inter({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://stockhub.fun"),
   title: "StockHub | Your one-stop guide to learn about finance!",
   description:
     "People think that investing in stock markets is risky, deadly, and what not! But StockHub is here to teach you how to buy the castle you always wanted! Welcome to the MoneyLand!",
   icons: {
-    icon: "https://stockhub.fun/favicon.ico",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
   },
   keywords:
     "finance, investing, stock market, learn stocks, StockHub, financial education, personal finance",
